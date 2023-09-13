@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoTeacherWPF", "AlgoTeacherWPF.csproj", "{3319061A-9608-4352-949D-9AEFF23B89CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "..\DataAccess\DataAccess.csproj", "{8C881EC6-7264-4BFA-9CCD-B1428FB850B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3319061A-9608-4352-949D-9AEFF23B89CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3319061A-9608-4352-949D-9AEFF23B89CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3319061A-9608-4352-949D-9AEFF23B89CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C881EC6-7264-4BFA-9CCD-B1428FB850B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C881EC6-7264-4BFA-9CCD-B1428FB850B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C881EC6-7264-4BFA-9CCD-B1428FB850B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C881EC6-7264-4BFA-9CCD-B1428FB850B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
