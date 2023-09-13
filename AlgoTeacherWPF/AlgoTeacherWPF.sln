@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoTeacherWPF", "AlgoTeacherWPF.csproj", "{3319061A-9608-4352-949D-9AEFF23B89CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3319061A-9608-4352-949D-9AEFF23B89CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3319061A-9608-4352-949D-9AEFF23B89CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3319061A-9608-4352-949D-9AEFF23B89CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3319061A-9608-4352-949D-9AEFF23B89CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACBA30AD-7147-40BF-B89A-5EEC246C18D3}
+	EndGlobalSection
+EndGlobal
