@@ -8,6 +8,7 @@
         Title="Algorithm Details" Height="450" Width="800">
 
     <Grid>
-        <Label Content="{Binding Name}"></Label>
+        <Label Content="{Binding Algorithm.Name}"></Label>
+        <Label Content="{Binding Algorithm.Description}"></Label>
     </Grid>
 </Window>
