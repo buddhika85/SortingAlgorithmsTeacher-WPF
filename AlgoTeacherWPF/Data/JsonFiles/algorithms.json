@@ -8,5 +8,45 @@
     "BestCaseComplexity": "O(n)",
     "SpaceComplexity": "O(1)",
     "IsStable": true
+  },
+  {
+    "Id": 2,
+    "Name": "Selection Sort",
+    "Description": "Selection sort is a sorting algorithm that selects the smallest element from an unsorted list in each iteration and places that element at the beginning of the unsorted list.",
+    "WorstCaseComplexity": "O(n^2)",
+    "AverageCaseComplexity": "O(n^2)",
+    "BestCaseComplexity": "O(n^2)",
+    "SpaceComplexity": "O(1)",
+    "IsStable": false
+  },
+  {
+    "Id": 3,
+    "Name": "Insertion Sort",
+    "Description": "Insertion sort is a sorting algorithm that places an unsorted element at its suitable place in each iteration. Insertion sort works similarly as we sort cards in our hand in a card game. We assume that the first card is already sorted then, we select an unsorted card. If the unsorted card is greater than the card in hand, it is placed on the right otherwise, to the left. In the same way, other unsorted cards are taken and put in their right place. A similar approach is used by insertion sort.",
+    "WorstCaseComplexity": "O(n^2)",
+    "AverageCaseComplexity": "O(n^2)",
+    "BestCaseComplexity": "O(n)",
+    "SpaceComplexity": "O(1)",
+    "IsStable": true
+  },
+  {
+    "Id": 4,
+    "Name": "Merge Sort",
+    "Description": "Merge Sort is one of the most popular sorting algorithms that is based on the principle of Divide and Conquer Algorithm. Here, a problem is divided into multiple sub-problems. Each sub-problem is solved individually. Finally, sub-problems are combined to form the final solution.",
+    "WorstCaseComplexity": "O(n log n)",
+    "AverageCaseComplexity": "O(n log n)",
+    "BestCaseComplexity": "O(n log n)",
+    "SpaceComplexity": "O(n)",
+    "IsStable": true
+  },
+  {
+    "Id": 5,
+    "Name": "Quick Sort",
+    "Description": "Quicksort is a sorting algorithm based on the divide and conquer approach where 1. An array is divided into subarrays by selecting a pivot element (element selected from the array). While dividing the array, the pivot element should be positioned in such a way that elements less than pivot are kept on the left side and elements greater than pivot are on the right side of the pivot. 2. The left and right subarrays are also divided using the same approach. This process continues until each subarray contains a single element.3. At this point, elements are already sorted. Finally, elements are combined to form a sorted array.",
+    "WorstCaseComplexity": "O(n^2)",
+    "AverageCaseComplexity": "O(n log n)",
+    "BestCaseComplexity": "O(n log n)",
+    "SpaceComplexity": "O(log n)",
+    "IsStable": false
   }
 ]
