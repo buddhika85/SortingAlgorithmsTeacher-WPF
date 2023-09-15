@@ -1,14 +1,13 @@
 ﻿using AlgoTeacherWPF.Data;
 using AlgoTeacherWPF.Model;
+using AlgoTeacherWPF.View;
 using AlgoTeacherWPF.ViewModel.Commands;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows;
+using System.Linq;
 
 namespace AlgoTeacherWPF.ViewModel
 {
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : BaseViewModel
     {
         private IList<Algorithm>? _algorithms;
         public IList<Algorithm>? Algorithms
@@ -33,19 +32,15 @@ namespace AlgoTeacherWPF.ViewModel
 
         public void OnAlgorithmSelectionClick(int algorithmId)
         {
-            MessageBox.Show($"{algorithmId}");
+            var selectedAlgorithm = GetSelectedAlgorithm(algorithmId);
+            if (selectedAlgorithm == null)
+                return;
+            new AlgorithmDetailWindow(selectedAlgorithm).Show();
         }
 
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        private Algorithm? GetSelectedAlgorithm(int algorithmId)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            return _algorithms?.FirstOrDefault(x => x.Id == algorithmId);
         }
-
-        #endregion INotifyPropertyChanged
-
-
     }
 }
