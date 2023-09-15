@@ -16,8 +16,6 @@ public partial class App : Application
     {
         if (!File.Exists(JsonFilePath))
             throw new FileNotFoundException(JsonFilePath);
-
-        //Test();
     }
 
     private void Test()

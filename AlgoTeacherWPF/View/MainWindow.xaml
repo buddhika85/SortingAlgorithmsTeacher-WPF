@@ -4,8 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Main Window - Sorting Algorithms" Height="450" Width="800">
-    <Grid>
-        
+        Title="Main Window - Sorting Algorithms" Height="450" Width="800"
+        xmlns:viewModels="clr-namespace:AlgoTeacherWPF.ViewModel">  <!-- namespace for view models-->
+
+    <Window.Resources>
+        <viewModels:MainWindowViewModel x:Key="ViewModel"/>     <!-- create view model object -->
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource ViewModel}">     <!-- specify data context -->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+           
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Orientation="Vertical" Grid.Row="0">
+            <Label Content="Algorithms" Style="{StaticResource MainHeader}"/>
+        </StackPanel>
+
+        <ListView Grid.Row="1" ItemsSource="{Binding Algorithms}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </Grid>
 </Window>

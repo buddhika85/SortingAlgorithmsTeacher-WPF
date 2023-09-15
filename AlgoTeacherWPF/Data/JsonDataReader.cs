@@ -1,24 +1,26 @@
 ﻿using AlgoTeacherWPF.Model;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text.Json;
 
 namespace AlgoTeacherWPF.Data
 {
-    public class JsonDataReader
+    public static class JsonDataReader
     {
         private static readonly JsonSerializerOptions Options = new()
         {
             WriteIndented = true
         };
 
-        private static IList<Algorithm> _algorithmList = new List<Algorithm>();
+        private static IList<Algorithm>? _algorithmList = new List<Algorithm>();
 
-        public static IList<Algorithm> GetAlgorithms()
+        static JsonDataReader()
         {
-            if (!_algorithmList.Any())
-                DeserializeJson();
+            DeserializeJson();
+        }
+
+        public static IList<Algorithm>? GetAlgorithms()
+        {
             return _algorithmList;
         }
 
