@@ -10,4 +10,6 @@ public class Algorithm
     public string BestCaseComplexity { get; set; } = null!;
     public string SpaceComplexity { get; set; } = null!;
     public bool IsStable { get; set; }
+
+    public Presentation Presentation { get; set; } = new Presentation { BackgroundColor = "White" };
 }

@@ -7,7 +7,10 @@
     "AverageCaseComplexity": "O(n^2)",
     "BestCaseComplexity": "O(n)",
     "SpaceComplexity": "O(1)",
-    "IsStable": true
+    "IsStable": true,
+    "Presentation": {
+      "BackgroundColor": "MediumSeaGreen"
+    }
   },
   {
     "Id": 2,
@@ -17,7 +20,10 @@
     "AverageCaseComplexity": "O(n^2)",
     "BestCaseComplexity": "O(n^2)",
     "SpaceComplexity": "O(1)",
-    "IsStable": false
+    "IsStable": false,
+    "Presentation": {
+      "BackgroundColor": "MediumSeaGreen"
+    }
   },
   {
     "Id": 3,
@@ -27,7 +33,10 @@
     "AverageCaseComplexity": "O(n^2)",
     "BestCaseComplexity": "O(n)",
     "SpaceComplexity": "O(1)",
-    "IsStable": true
+    "IsStable": true,
+    "Presentation": {
+      "BackgroundColor": "MediumSeaGreen"
+    }
   },
   {
     "Id": 4,
@@ -37,7 +46,10 @@
     "AverageCaseComplexity": "O(n log n)",
     "BestCaseComplexity": "O(n log n)",
     "SpaceComplexity": "O(n)",
-    "IsStable": true
+    "IsStable": true,
+    "Presentation": {
+      "BackgroundColor": "MediumSeaGreen"
+    }
   },
   {
     "Id": 5,
@@ -47,6 +59,9 @@
     "AverageCaseComplexity": "O(n log n)",
     "BestCaseComplexity": "O(n log n)",
     "SpaceComplexity": "O(log n)",
-    "IsStable": false
+    "IsStable": false,
+    "Presentation": {
+      "BackgroundColor": "MediumSeaGreen"
+    }
   }
 ]

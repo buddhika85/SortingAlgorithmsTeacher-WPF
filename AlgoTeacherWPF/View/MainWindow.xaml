@@ -30,7 +30,7 @@
         </StackPanel>
         
 
-        <ListView Grid.Row="1" ItemsSource="{Binding Algorithms}">
+        <ListView Grid.Row="1" ItemsSource="{Binding Algorithms}" BorderBrush="Transparent">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -47,7 +47,8 @@
                 <DataTemplate>
 
                     <Border BorderBrush="Silver" BorderThickness="2" CornerRadius="6">
-                        <Label Content="{Binding Name}" Style="{StaticResource Cell}"/>
+                        <Label Content="{Binding Name}" Style="{StaticResource Cell}"
+                               Background="{Binding Presentation.BackgroundColor}"/>
                     </Border>
                     
 

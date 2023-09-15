@@ -21,6 +21,7 @@
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="FontSize" Value="12" />
+            <!--<Setter Property="Background" Value="MediumSeaGreen"></Setter>-->
         </Style>
 
       
