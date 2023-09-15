@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Main Window - Sorting Algorithms" Height="450" Width="800"
+        Title="Main Window - Sorting Algorithms" Height="300" Width="610"
         xmlns:viewModels="clr-namespace:AlgoTeacherWPF.ViewModel">  <!-- namespace for view models-->
 
     <Window.Resources>
@@ -28,14 +28,37 @@
         <StackPanel Orientation="Vertical" Grid.Row="0">
             <Label Content="Algorithms" Style="{StaticResource MainHeader}"/>
         </StackPanel>
+        
 
         <ListView Grid.Row="1" ItemsSource="{Binding Algorithms}">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" 
+                               Width="570" 
+                               Margin="10"
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Name}"/>
+
+                    <Border BorderBrush="Silver" BorderThickness="2" CornerRadius="6">
+                        <Label Content="{Binding Name}" Style="{StaticResource Cell}"/>
+                    </Border>
+                    
+
                 </DataTemplate>
             </ListView.ItemTemplate>
+
+           
         </ListView>
+
+
+
 
     </Grid>
 </Window>
