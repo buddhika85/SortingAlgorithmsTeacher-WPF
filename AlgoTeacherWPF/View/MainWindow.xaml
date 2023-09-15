@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Main Window - Sorting Algorithms" Height="300" Width="610"
+        Title="Main Window - Sorting Algorithms" Height="300" Width="620"
         xmlns:viewModels="clr-namespace:AlgoTeacherWPF.ViewModel">  <!-- namespace for view models-->
 
     <Window.Resources>
@@ -30,12 +30,14 @@
         </StackPanel>
         
 
-        <ListView Grid.Row="1" ItemsSource="{Binding Algorithms}" BorderBrush="Transparent">
+        <ListView Grid.Row="1" x:Name="AlgorithmsListView" 
+                  ItemsSource="{Binding Algorithms}" 
+                  BorderBrush="Transparent">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" 
-                               Width="570" 
+                               Width="580" 
                                Margin="10"
                                HorizontalAlignment="Center" 
                                VerticalAlignment="Center"/>
@@ -46,11 +48,16 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
 
-                    <Border BorderBrush="Silver" BorderThickness="2" CornerRadius="6">
-                        <Label Content="{Binding Name}" Style="{StaticResource Cell}"
-                               Background="{Binding Presentation.BackgroundColor}"/>
+                    <Border Style="{StaticResource CellBtnBorder}">
+                        <Button Style="{StaticResource CellBtn}"
+                            Command="{Binding ElementName=AlgorithmsListView, Path=DataContext.AlgorithmSelectionCommand}"
+                            CommandParameter="{Binding Id}">
+                        
+                            <Label Content="{Binding Name}" Style="{StaticResource Cell}"
+                                   Background="{Binding Presentation.BackgroundColor}" />
+                       
+                        </Button>
                     </Border>
-                    
 
                 </DataTemplate>
             </ListView.ItemTemplate>

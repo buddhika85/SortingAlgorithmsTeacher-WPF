@@ -1,16 +1,16 @@
 ﻿using AlgoTeacherWPF.Data;
 using AlgoTeacherWPF.Model;
+using AlgoTeacherWPF.ViewModel.Commands;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 
 namespace AlgoTeacherWPF.ViewModel
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         private IList<Algorithm>? _algorithms;
-
-
         public IList<Algorithm>? Algorithms
         {
             get => _algorithms;
@@ -21,12 +21,20 @@ namespace AlgoTeacherWPF.ViewModel
             }
         }
 
+        public AlgorithmSelectionCommand AlgorithmSelectionCommand { get; set; }
+
 
         public MainWindowViewModel()
         {
             Algorithms = JsonDataReader.GetAlgorithms();
+            AlgorithmSelectionCommand = new AlgorithmSelectionCommand(this);
         }
 
+
+        public void OnAlgorithmSelectionClick(int algorithmId)
+        {
+            MessageBox.Show($"{algorithmId}");
+        }
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -37,5 +45,7 @@ namespace AlgoTeacherWPF.ViewModel
         }
 
         #endregion INotifyPropertyChanged
+
+
     }
 }

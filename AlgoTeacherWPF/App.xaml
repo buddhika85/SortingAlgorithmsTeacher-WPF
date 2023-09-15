@@ -21,10 +21,19 @@
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="FontSize" Value="12" />
-            <!--<Setter Property="Background" Value="MediumSeaGreen"></Setter>-->
+            <Setter Property="Foreground" Value="Black"></Setter>
         </Style>
 
-      
+       <Style TargetType="Button" x:Key="CellBtn">
+           <Setter Property="Margin" Value="0" />
+           <Setter Property="Padding" Value="0" />
+       </Style>
+
+        <Style TargetType="Border" x:Key="CellBtnBorder">
+            <Setter Property="BorderBrush" Value="Silver" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="CornerRadius" Value="6" />
+        </Style>
 
     </Application.Resources>
 </Application>
