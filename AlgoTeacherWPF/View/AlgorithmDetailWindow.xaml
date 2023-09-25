@@ -139,12 +139,12 @@
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="450"/>
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" Content="Data Set Size  :  "/>
-                <WrapPanel Grid.Row="0" Grid.Column="1" Background="AntiqueWhite">
+                <WrapPanel Grid.Row="0" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
                     <Button Content=" - " Style="{StaticResource SizeChangeBtn}" 
                             Command="{Binding DataSetSizeDecreaseCommand}"
                             CommandParameter="{Binding DataSetSize}"/>
@@ -155,17 +155,17 @@
                 </WrapPanel>
 
                 <Label Grid.Row="1" Grid.Column="0" Content="Case  :  "/>
-                <WrapPanel Grid.Row="1" Grid.Column="1" Background="AntiqueWhite">
+                <WrapPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
                 
                 </WrapPanel>
 
                 <Label Grid.Row="2" Grid.Column="0" Content="Speed  :  "/>
-                <WrapPanel Grid.Row="2" Grid.Column="1" Background="AntiqueWhite">
+                <WrapPanel Grid.Row="2" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
 
                 </WrapPanel>
 
                 <Label Grid.Row="3" Grid.Column="0" Content="Can Repeat  :  "/>
-                <WrapPanel Grid.Row="3" Grid.Column="1" Background="AntiqueWhite">
+                <WrapPanel Grid.Row="3" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
 
                 </WrapPanel>
 
