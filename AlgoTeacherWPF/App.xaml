@@ -86,6 +86,11 @@
         <Setter Property="Padding" Value="0" />
         </Style>
 
+        <!-- Radio buttons-->
+        <Style TargetType="RadioButton" x:Key="FormRadioBtn">
+            <Setter Property="Margin" Value="10 2 10 1" />
+            <Setter Property="Padding" Value="10 2 10 1" />
+        </Style>
 
         <!-- Borders -->
         <Style TargetType="Border" x:Key="CellBtnBorder">

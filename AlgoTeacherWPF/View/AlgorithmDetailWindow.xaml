@@ -154,32 +154,35 @@
                             CommandParameter="{Binding DataSetSize}"/>
                 </WrapPanel>
 
-                <Label Grid.Row="1" Grid.Column="0" Content="Case  :  "/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Can Repeat  :  "/>
                 <WrapPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
-                    <RadioButton GroupName="Case" IsChecked="True" 
+                    <RadioButton GroupName="CanRepeat" IsChecked="True" Style="{StaticResource FormRadioBtn}">Yes</RadioButton>
+                    <RadioButton GroupName="CanRepeat" Style="{StaticResource FormRadioBtn}">No</RadioButton>
+                </WrapPanel>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Case  :  "/>
+                <WrapPanel Grid.Row="2" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
+                    <RadioButton GroupName="Case" IsChecked="True" Style="{StaticResource FormRadioBtn}"
                                  Command="{Binding CaseRadioButtonSelectionCommand}"
                                  CommandParameter="Worst">Worst</RadioButton>
-                    <RadioButton GroupName="Case"
+                    <RadioButton GroupName="Case" Style="{StaticResource FormRadioBtn}"
                                  Command="{Binding CaseRadioButtonSelectionCommand}"
                                  CommandParameter="Average">Average</RadioButton>
-                    <RadioButton GroupName="Case"
+                    <RadioButton GroupName="Case" Style="{StaticResource FormRadioBtn}"
                                  Command="{Binding CaseRadioButtonSelectionCommand}"
                                  CommandParameter="Best">Best</RadioButton>
                 </WrapPanel>
 
-                <Label Grid.Row="2" Grid.Column="0" Content="Speed  :  "/>
-                <WrapPanel Grid.Row="2" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
-                    <RadioButton GroupName="Speed" IsChecked="True">1x</RadioButton>
-                    <RadioButton GroupName="Speed">2x</RadioButton>
-                    <RadioButton GroupName="Speed">3x</RadioButton>
-                    <RadioButton GroupName="Speed">4x</RadioButton>
-                    <RadioButton GroupName="Speed">5x</RadioButton>
-                </WrapPanel>
-
-                <Label Grid.Row="3" Grid.Column="0" Content="Can Repeat  :  "/>
+                <Label Grid.Row="3" Grid.Column="0" Content="Speed  :  "/>
                 <WrapPanel Grid.Row="3" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
-
+                    <RadioButton GroupName="Speed" IsChecked="True" Style="{StaticResource FormRadioBtn}">1x</RadioButton>
+                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">2x</RadioButton>
+                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">3x</RadioButton>
+                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">4x</RadioButton>
+                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">5x</RadioButton>
                 </WrapPanel>
+
+                
 
                 <!-- Empty Row Grid.Row="4" -->
 
