@@ -1,5 +1,6 @@
 ﻿using AlgoTeacherWPF.Model;
 using AlgoTeacherWPF.Utilities;
+using AlgoTeacherWPF.ViewModel.Commands;
 using System.Collections.ObjectModel;
 
 namespace AlgoTeacherWPF.ViewModel
@@ -10,6 +11,12 @@ namespace AlgoTeacherWPF.ViewModel
         public const int Min = 10;
         public const int Max = 100;
         public Algorithm Algorithm { get; init; }
+
+        #region commands
+
+        public DataSetSizeIncreaseCommand DataSetSizeIncreaseCommand { get; set; } = null!;
+        public DataSetSizeDecreaseCommand DataSetSizeDecreaseCommand { get; set; } = null!;
+        #endregion commands
 
 
 
@@ -25,15 +32,15 @@ namespace AlgoTeacherWPF.ViewModel
         }
 
 
-        private int _datSetSize = InitialDatSetSize;
+        private int _dataSetSize = InitialDatSetSize;
 
-        public int DatSetSize
+        public int DataSetSize
         {
-            get => _datSetSize;
+            get => _dataSetSize;
             set
             {
-                _datSetSize = value;
-                OnPropertyChanged(nameof(DatSetSize));
+                _dataSetSize = value;
+                OnPropertyChanged(nameof(DataSetSize));
             }
         }
 
@@ -59,6 +66,7 @@ namespace AlgoTeacherWPF.ViewModel
                 Presentation = new Presentation { BackgroundColor = "Red" }
             };
             GenerateRandomDataSet();
+            SetupCommands();
         }
 
         // This constructor will be invoked when MainView algorithm selection button gets clicked
@@ -66,16 +74,35 @@ namespace AlgoTeacherWPF.ViewModel
         {
             Algorithm = algorithm;
             GenerateRandomDataSet();
+            SetupCommands();
         }
 
         #endregion constructors
 
+
+        public void DataSetSizeIncrease()
+        {
+            ++DataSetSize;
+        }
+
+        public void DataSetSizeDecrease()
+        {
+            --DataSetSize;
+        }
+
+
         #region helpers
 
+        private void SetupCommands()
+        {
+            DataSetSizeIncreaseCommand = new DataSetSizeIncreaseCommand(this);
+            DataSetSizeDecreaseCommand = new DataSetSizeDecreaseCommand(this);
+        }
         private void GenerateRandomDataSet()
         {
-            Util.GenerateRandomDataSet(Min, Max, DatSetSize, ref _unsortedDataSet);
+            Util.GenerateRandomDataSet(Min, Max, DataSetSize, ref _unsortedDataSet);
         }
         #endregion helpers
+
     }
 }

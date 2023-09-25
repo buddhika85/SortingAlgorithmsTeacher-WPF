@@ -60,8 +60,12 @@
             <Setter Property="Foreground" Value="DarkBlue" />
         </Style>
 
+        <Style TargetType="Label" x:Key="SizeLbl">
+            <Setter Property="Margin" Value="10, 0, 10, 0"></Setter>
+        </Style>
 
 
+        <!--Text Blocks  -->
         <Style TargetType="TextBlock" x:Key="AlgoDescriptionTxt">
             <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="TextAlignment" Value="Justify" />
@@ -69,11 +73,19 @@
             <Setter Property="Foreground" Value="DarkBlue" />
         </Style>
 
+        <!--Buttons  -->
         <Style TargetType="Button" x:Key="CellBtn">
            <Setter Property="Margin" Value="0" />
            <Setter Property="Padding" Value="0" />
-       </Style>
+        </Style>
 
+        <Style TargetType="Button" x:Key="SizeChangeBtn">
+        <Setter Property="Width" Value="30" />
+        <Setter Property="Padding" Value="0" />
+        </Style>
+
+
+        <!-- Borders -->
         <Style TargetType="Border" x:Key="CellBtnBorder">
             <Setter Property="BorderBrush" Value="Silver" />
             <Setter Property="BorderThickness" Value="2" />
