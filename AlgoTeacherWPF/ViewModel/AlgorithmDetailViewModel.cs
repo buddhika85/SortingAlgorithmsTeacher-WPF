@@ -1,5 +1,5 @@
 ﻿using AlgoTeacherWPF.Model;
-using System;
+using AlgoTeacherWPF.Utilities;
 using System.Collections.ObjectModel;
 
 namespace AlgoTeacherWPF.ViewModel
@@ -74,12 +74,7 @@ namespace AlgoTeacherWPF.ViewModel
 
         private void GenerateRandomDataSet()
         {
-            Random rnd = new();
-            UnsortedDataSet.Clear();
-            for (var i = 0; i < _datSetSize; i++)
-            {
-                UnsortedDataSet.Add(rnd.Next(Min, Max + 1));
-            }
+            Util.GenerateRandomDataSet(Min, Max, DatSetSize, ref _unsortedDataSet);
         }
         #endregion helpers
     }
