@@ -44,6 +44,7 @@ namespace AlgoTeacherWPF.ViewModel
             {
                 _dataSetSize = value;
                 OnPropertyChanged(nameof(DataSetSize));
+                GenerateRandomDataSet();
             }
         }
 
