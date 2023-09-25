@@ -74,9 +74,12 @@ namespace AlgoTeacherWPF.ViewModel
             {
                 _canRepeat = value;
                 OnPropertyChanged(nameof(CanRepeat));
+                if (_canRepeat)
+                    ReArrangeDataSetToRepeats();
+                else
+                    GenerateRandomDataSet();
             }
         }
-
 
         #region constructors
 
@@ -149,12 +152,20 @@ namespace AlgoTeacherWPF.ViewModel
         private void GenerateRandomDataSet()
         {
             Util.GenerateRandomDataSet(Min, Max, DataSetSize, ComplexityCase, ref _unsortedDataSet);
+            if (_canRepeat)
+                ReArrangeDataSetToRepeats();
         }
 
         private void ReArrangeDataSet()
         {
             Util.ReArrangeDataSet(ComplexityCase, ref _unsortedDataSet);
         }
+
+        private void ReArrangeDataSetToRepeats()
+        {
+            Util.ReArrangeDataSetToRepeats(ref _unsortedDataSet);
+        }
+
         #endregion helpers
 
     }

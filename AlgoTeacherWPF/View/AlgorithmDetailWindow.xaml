@@ -158,10 +158,10 @@
                 <WrapPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
                     <RadioButton GroupName="CanRepeat" IsChecked="True" Style="{StaticResource FormRadioBtn}"
                                  Command="{Binding CanRepeatCommand}" 
-                                 CommandParameter="Yes">Yes</RadioButton>
+                                 CommandParameter="No">No</RadioButton>
                     <RadioButton GroupName="CanRepeat" Style="{StaticResource FormRadioBtn}"
                                  Command="{Binding CanRepeatCommand}" 
-                                 CommandParameter="No">No</RadioButton>
+                                 CommandParameter="Yes">Yes</RadioButton>
                 </WrapPanel>
 
                 <Label Grid.Row="2" Grid.Column="0" Content="Case  :  "/>
@@ -179,9 +179,9 @@
 
                 <Label Grid.Row="3" Grid.Column="0" Content="Speed  :  "/>
                 <WrapPanel Grid.Row="3" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
-                    <RadioButton GroupName="Speed" IsChecked="True" Style="{StaticResource FormRadioBtn}">1x</RadioButton>
+                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">1x</RadioButton>
                     <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">2x</RadioButton>
-                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">3x</RadioButton>
+                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}" IsChecked="True">3x</RadioButton>
                     <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">4x</RadioButton>
                     <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">5x</RadioButton>
                 </WrapPanel>

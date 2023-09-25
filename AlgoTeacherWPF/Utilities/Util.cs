@@ -8,6 +8,8 @@ namespace AlgoTeacherWPF.Utilities
 {
     public static class Util
     {
+        private const int OneRepeatCount = 5;
+        private const int TwoRepeatCount = 8;
         public static void GenerateRandomDataSet(int min, int max, int datSetSize, ComplexityCase complexityCase, ref ObservableCollection<int> unsortedDataSet)
         {
             var tempList = GetRandomIntList(min, max, datSetSize);
@@ -22,6 +24,27 @@ namespace AlgoTeacherWPF.Utilities
             tempList.Sort();
             ArrangeIntListByComplexityCase(complexityCase, tempList);
             PopulateObservableCollection(unsortedDataSet, tempList);
+        }
+
+        public static void ReArrangeDataSetToRepeats(ref ObservableCollection<int> unsortedDataSet)
+        {
+            switch (unsortedDataSet.Count)
+            {
+                // index 1,2,3,4
+                case <= OneRepeatCount:
+                    unsortedDataSet[0] = unsortedDataSet[^1];       // index 0 = index last
+                    break;
+                // index 1,2,3,4,5,6,7
+                case <= TwoRepeatCount:
+                    unsortedDataSet[^1] = unsortedDataSet[2];       // index last = index two
+                    unsortedDataSet[3] = unsortedDataSet[0];        // index three = index zero
+                    break;
+                default: // index 1,2,3,4,5,6,7
+                    unsortedDataSet[0] = unsortedDataSet[^1];       // index 0 = index last
+                    unsortedDataSet[5] = unsortedDataSet[2];        // index 0 = index last
+                    unsortedDataSet[7] = unsortedDataSet[4];        // index 0 = index last
+                    break;
+            }
         }
 
         private static void PopulateObservableCollection(ObservableCollection<int> unsortedDataSet, List<int> tempList)
