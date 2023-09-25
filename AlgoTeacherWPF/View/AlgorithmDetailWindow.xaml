@@ -63,7 +63,7 @@
             </Border>
 
             <Border Style="{StaticResource GridBorder}" Grid.Row="0" Grid.Column="2">
-                <Label Content="Bast Case" Style="{StaticResource TableColumnHeader}"/>
+                <Label Content="Best Case" Style="{StaticResource TableColumnHeader}"/>
             </Border>
 
             <Border Style="{StaticResource GridBorder}" Grid.Row="0" Grid.Column="3">
