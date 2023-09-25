@@ -22,6 +22,7 @@ namespace AlgoTeacherWPF.ViewModel
         public DataSetSizeIncreaseCommand DataSetSizeIncreaseCommand { get; set; } = null!;
         public DataSetSizeDecreaseCommand DataSetSizeDecreaseCommand { get; set; } = null!;
         public CaseRadioButtonSelectionCommand CaseRadioButtonSelectionCommand { get; set; } = null!;
+        public CanRepeatCommand CanRepeatCommand { get; set; } = null!;
         #endregion commands
 
 
@@ -63,6 +64,19 @@ namespace AlgoTeacherWPF.ViewModel
                 ReArrangeDataSet();
             }
         }
+
+        private bool _canRepeat;
+
+        public bool CanRepeat
+        {
+            get => _canRepeat;
+            set
+            {
+                _canRepeat = value;
+                OnPropertyChanged(nameof(CanRepeat));
+            }
+        }
+
 
         #region constructors
 
@@ -112,6 +126,10 @@ namespace AlgoTeacherWPF.ViewModel
         {
             ComplexityCase = complexityCase;
         }
+        public void SetCanRepeat(bool canRepeat)
+        {
+            CanRepeat = canRepeat;
+        }
 
         #region helpers
 
@@ -126,6 +144,7 @@ namespace AlgoTeacherWPF.ViewModel
             DataSetSizeIncreaseCommand = new DataSetSizeIncreaseCommand(this);
             DataSetSizeDecreaseCommand = new DataSetSizeDecreaseCommand(this);
             CaseRadioButtonSelectionCommand = new CaseRadioButtonSelectionCommand(this);
+            CanRepeatCommand = new CanRepeatCommand(this);
         }
         private void GenerateRandomDataSet()
         {
@@ -137,5 +156,6 @@ namespace AlgoTeacherWPF.ViewModel
             Util.ReArrangeDataSet(ComplexityCase, ref _unsortedDataSet);
         }
         #endregion helpers
+
     }
 }
