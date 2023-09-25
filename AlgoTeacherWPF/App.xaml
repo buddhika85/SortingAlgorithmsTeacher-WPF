@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="/View/MainWindow.xaml">
     <Application.Resources>
-         
-        <!-- used for main headers-->
+
+        <!-- headers, labels -->
         <Style TargetType="Label" x:Key="MainHeader">
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="FontSize" Value="20" />
@@ -13,6 +13,31 @@
             <Setter Property="Margin" Value="0, 10 ,0, 10" />
         </Style>
 
+        <Style TargetType="Label" x:Key="SubHeader">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0, 10 ,0, 10" />
+        </Style>
+
+
+        <Style TargetType="Label" x:Key="TableColumnHeader">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="Label" x:Key="TableColumnData">
+            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="DarkBlue" />
+        </Style>
+
+        
         <Style TargetType="Label" x:Key="Cell">
             <Setter Property="Width" Value="100" />
             <Setter Property="Height" Value="100" />
@@ -21,10 +46,19 @@
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="FontSize" Value="12" />
-            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="Foreground" Value="Black" />
         </Style>
 
-       <Style TargetType="Button" x:Key="CellBtn">
+
+
+        <Style TargetType="TextBlock" x:Key="AlgoDescriptionTxt">
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="TextAlignment" Value="Justify" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Foreground" Value="DarkBlue" />
+        </Style>
+
+        <Style TargetType="Button" x:Key="CellBtn">
            <Setter Property="Margin" Value="0" />
            <Setter Property="Padding" Value="0" />
        </Style>
@@ -34,6 +68,12 @@
             <Setter Property="BorderThickness" Value="2" />
             <Setter Property="CornerRadius" Value="6" />
         </Style>
+
+        <Style TargetType="Border" x:Key="GridBorder">
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
 
     </Application.Resources>
 </Application>

@@ -29,6 +29,69 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Content="{Binding Algorithm.Name}" Style="{StaticResource MainHeader}"></Label>
-        <Label Grid.Row="1" Content="{Binding Algorithm.Description}"></Label>
+        <WrapPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="{Binding Algorithm.Description}" Style="{StaticResource AlgoDescriptionTxt}"/>
+        </WrapPanel>
+
+        <Label Grid.Row="2" Content="Time Complexities and Stability" Style="{StaticResource SubHeader}"></Label>
+
+
+
+
+        <Grid Grid.Row="3" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Border Style="{StaticResource GridBorder}" Grid.Row="0" Grid.Column="0">
+                <Label Content="Average Case" Style="{StaticResource TableColumnHeader}"/>
+            </Border>
+
+            <Border Style="{StaticResource GridBorder}" Grid.Row="0" Grid.Column="1">
+                <Label Content="Worst Case" Style="{StaticResource TableColumnHeader}"/>
+            </Border>
+
+            <Border Style="{StaticResource GridBorder}" Grid.Row="0" Grid.Column="2">
+                <Label Content="Bast Case" Style="{StaticResource TableColumnHeader}"/>
+            </Border>
+
+            <Border Style="{StaticResource GridBorder}" Grid.Row="0" Grid.Column="3">
+                <Label Content="Space Complexity" Style="{StaticResource TableColumnHeader}"/>
+            </Border>
+
+            <Border Style="{StaticResource GridBorder}" Grid.Row="0" Grid.Column="4">
+                <Label Content="Is Stable?" Style="{StaticResource TableColumnHeader}"/>
+            </Border>
+
+            <Border Style="{StaticResource GridBorder}" Grid.Row="1" Grid.Column="0">
+                <Label Content="{Binding Algorithm.WorstCaseComplexity}" Style="{StaticResource TableColumnData}"/>
+            </Border>
+
+            <Border Style="{StaticResource GridBorder}" Grid.Row="1" Grid.Column="1">
+                <Label Content="{Binding Algorithm.AverageCaseComplexity}" Style="{StaticResource TableColumnData}"/>
+            </Border>
+
+            <Border Style="{StaticResource GridBorder}" Grid.Row="1" Grid.Column="2">
+                <Label Content="{Binding Algorithm.BestCaseComplexity}" Style="{StaticResource TableColumnData}"/>
+            </Border>
+
+            <Border Style="{StaticResource GridBorder}" Grid.Row="1" Grid.Column="3">
+                <Label Content="{Binding Algorithm.SpaceComplexity}" Style="{StaticResource TableColumnData}"/>
+            </Border>
+
+            <Border Style="{StaticResource GridBorder}" Grid.Row="1" Grid.Column="4">
+                <Label Content="{Binding Algorithm.IsStable}" Style="{StaticResource TableColumnData}"/>
+            </Border>
+        </Grid>
+
     </Grid>
 </Window>
