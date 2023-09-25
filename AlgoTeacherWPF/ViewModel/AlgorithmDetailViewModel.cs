@@ -1,21 +1,39 @@
 ﻿using AlgoTeacherWPF.Model;
-using System.Collections.Generic;
+using System;
+using System.Collections.ObjectModel;
 
 namespace AlgoTeacherWPF.ViewModel
 {
     public class AlgorithmDetailViewModel : BaseViewModel
     {
+        private const int InitialDatSetSize = 5;
+        public const int Min = 10;
+        public const int Max = 100;
         public Algorithm Algorithm { get; init; }
 
-        private List<int> _unsortedDataSet;
 
-        public List<int> UnsortedDataSet
+
+        private ObservableCollection<int> _unsortedDataSet = new();
+        public ObservableCollection<int> UnsortedDataSet
         {
             get => _unsortedDataSet;
             set
             {
                 _unsortedDataSet = value;
                 OnPropertyChanged(nameof(UnsortedDataSet));
+            }
+        }
+
+
+        private int _datSetSize = InitialDatSetSize;
+
+        public int DatSetSize
+        {
+            get => _datSetSize;
+            set
+            {
+                _datSetSize = value;
+                OnPropertyChanged(nameof(DatSetSize));
             }
         }
 
@@ -40,16 +58,29 @@ namespace AlgoTeacherWPF.ViewModel
                 IsStable = false,
                 Presentation = new Presentation { BackgroundColor = "Red" }
             };
-            _unsortedDataSet = new List<int> { 50, 40, 30, 20, 10 };
+            GenerateRandomDataSet();
         }
 
         // This constructor will be invoked when MainView algorithm selection button gets clicked
         public AlgorithmDetailViewModel(Algorithm algorithm)
         {
             Algorithm = algorithm;
-            _unsortedDataSet = new List<int> { 50, 40, 30, 20, 10 };
+            GenerateRandomDataSet();
         }
 
         #endregion constructors
+
+        #region helpers
+
+        private void GenerateRandomDataSet()
+        {
+            Random rnd = new();
+            UnsortedDataSet.Clear();
+            for (var i = 0; i < _datSetSize; i++)
+            {
+                UnsortedDataSet.Add(rnd.Next(Min, Max + 1));
+            }
+        }
+        #endregion helpers
     }
 }
