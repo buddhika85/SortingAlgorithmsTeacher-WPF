@@ -156,12 +156,24 @@
 
                 <Label Grid.Row="1" Grid.Column="0" Content="Case  :  "/>
                 <WrapPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
-                
+                    <RadioButton GroupName="Case" IsChecked="True" 
+                                 Command="{Binding CaseRadioButtonSelectionCommand}"
+                                 CommandParameter="Worst">Worst</RadioButton>
+                    <RadioButton GroupName="Case"
+                                 Command="{Binding CaseRadioButtonSelectionCommand}"
+                                 CommandParameter="Average">Average</RadioButton>
+                    <RadioButton GroupName="Case"
+                                 Command="{Binding CaseRadioButtonSelectionCommand}"
+                                 CommandParameter="Best">Best</RadioButton>
                 </WrapPanel>
 
                 <Label Grid.Row="2" Grid.Column="0" Content="Speed  :  "/>
                 <WrapPanel Grid.Row="2" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
-
+                    <RadioButton GroupName="Speed" IsChecked="True">1x</RadioButton>
+                    <RadioButton GroupName="Speed">2x</RadioButton>
+                    <RadioButton GroupName="Speed">3x</RadioButton>
+                    <RadioButton GroupName="Speed">4x</RadioButton>
+                    <RadioButton GroupName="Speed">5x</RadioButton>
                 </WrapPanel>
 
                 <Label Grid.Row="3" Grid.Column="0" Content="Can Repeat  :  "/>

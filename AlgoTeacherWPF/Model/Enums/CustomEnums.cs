@@ -1,6 +1,6 @@
 ﻿namespace AlgoTeacherWPF.Model.Enums;
 
-public enum Case
+public enum ComplexityCase
 {
     WorstCase,
     AverageCase,

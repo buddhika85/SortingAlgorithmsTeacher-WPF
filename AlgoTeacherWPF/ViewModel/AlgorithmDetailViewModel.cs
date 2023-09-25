@@ -1,7 +1,9 @@
 ﻿using AlgoTeacherWPF.Model;
+using AlgoTeacherWPF.Model.Enums;
 using AlgoTeacherWPF.Utilities;
 using AlgoTeacherWPF.ViewModel.Commands;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace AlgoTeacherWPF.ViewModel
 {
@@ -19,6 +21,7 @@ namespace AlgoTeacherWPF.ViewModel
 
         public DataSetSizeIncreaseCommand DataSetSizeIncreaseCommand { get; set; } = null!;
         public DataSetSizeDecreaseCommand DataSetSizeDecreaseCommand { get; set; } = null!;
+        public CaseRadioButtonSelectionCommand CaseRadioButtonSelectionCommand { get; set; } = null!;
         #endregion commands
 
 
@@ -48,7 +51,18 @@ namespace AlgoTeacherWPF.ViewModel
             }
         }
 
+        private ComplexityCase _complexityCase;
 
+        public ComplexityCase ComplexityCase
+        {
+            get => _complexityCase;
+            set
+            {
+                _complexityCase = value;
+                OnPropertyChanged(nameof(ComplexityCase));
+                ReArrangeDataSet();
+            }
+        }
 
         #region constructors
 
@@ -94,6 +108,10 @@ namespace AlgoTeacherWPF.ViewModel
             --DataSetSize;
         }
 
+        public void SetComplexityCase(ComplexityCase complexityCase)
+        {
+            ComplexityCase = complexityCase;
+        }
 
         #region helpers
 
@@ -101,12 +119,37 @@ namespace AlgoTeacherWPF.ViewModel
         {
             DataSetSizeIncreaseCommand = new DataSetSizeIncreaseCommand(this);
             DataSetSizeDecreaseCommand = new DataSetSizeDecreaseCommand(this);
+            CaseRadioButtonSelectionCommand = new CaseRadioButtonSelectionCommand(this);
         }
         private void GenerateRandomDataSet()
         {
             Util.GenerateRandomDataSet(Min, Max, DataSetSize, ref _unsortedDataSet);
         }
-        #endregion helpers
 
+        private void ReArrangeDataSet()
+        {
+            var tempList = UnsortedDataSet.ToList();
+            tempList.Sort();
+            UnsortedDataSet.Clear();
+            switch (ComplexityCase)
+            {
+                case ComplexityCase.BestCase:
+                    // already sorted
+                    break;
+                case ComplexityCase.WorstCase:
+                    tempList.Reverse();
+                    break;
+                case ComplexityCase.AverageCase:
+                default:
+                    // mix first and last
+                    (tempList[0], tempList[^1]) = (tempList[^1], tempList[0]);
+                    break;
+            }
+            foreach (var item in tempList)
+            {
+                UnsortedDataSet.Add(item);
+            }
+        }
+        #endregion helpers
     }
 }
