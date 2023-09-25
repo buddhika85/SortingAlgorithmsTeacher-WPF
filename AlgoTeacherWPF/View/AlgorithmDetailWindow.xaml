@@ -139,8 +139,8 @@
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="400"/>
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" Content="Data Set Size  :  "/>
@@ -153,6 +153,26 @@
                             Command="{Binding DataSetSizeIncreaseCommand}"
                             CommandParameter="{Binding DataSetSize}"/>
                 </WrapPanel>
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Case  :  "/>
+                <WrapPanel Grid.Row="1" Grid.Column="1" Background="AntiqueWhite">
+                
+                </WrapPanel>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Speed  :  "/>
+                <WrapPanel Grid.Row="2" Grid.Column="1" Background="AntiqueWhite">
+
+                </WrapPanel>
+
+                <Label Grid.Row="3" Grid.Column="0" Content="Can Repeat  :  "/>
+                <WrapPanel Grid.Row="3" Grid.Column="1" Background="AntiqueWhite">
+
+                </WrapPanel>
+
+                <!-- Empty Row Grid.Row="4" -->
+
+                <Button Grid.Row="5" Grid.Column="0" Content=" Sort "/>
+                <Button Grid.Row="5" Grid.Column="1" Content=" Reset " />
 
             </Grid>
 
