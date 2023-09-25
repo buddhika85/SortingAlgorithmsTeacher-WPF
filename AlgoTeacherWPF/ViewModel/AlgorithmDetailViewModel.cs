@@ -8,8 +8,11 @@ namespace AlgoTeacherWPF.ViewModel
     public class AlgorithmDetailViewModel : BaseViewModel
     {
         private const int InitialDatSetSize = 5;
-        public const int Min = 10;
-        public const int Max = 100;
+        private const int Min = 10;
+        private const int Max = 100;
+        internal readonly int MinDataSetSize = 2;      // made these internal to access from command class
+        internal readonly int MaxDataSetSize = 10;
+
         public Algorithm Algorithm { get; init; }
 
         #region commands

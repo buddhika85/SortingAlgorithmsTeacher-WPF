@@ -146,10 +146,12 @@
                 <Label Grid.Row="0" Grid.Column="0" Content="Data Set Size  :  "/>
                 <WrapPanel Grid.Row="0" Grid.Column="1" Background="AntiqueWhite">
                     <Button Content=" - " Style="{StaticResource SizeChangeBtn}" 
-                            Command="{Binding DataSetSizeDecreaseCommand}"/>
+                            Command="{Binding DataSetSizeDecreaseCommand}"
+                            CommandParameter="{Binding DataSetSize}"/>
                     <Label Content="{Binding DataSetSize}" Style="{StaticResource SizeLbl}"/>
                     <Button Content=" + " Style="{StaticResource SizeChangeBtn}" 
-                            Command="{Binding DataSetSizeIncreaseCommand}"/>
+                            Command="{Binding DataSetSizeIncreaseCommand}"
+                            CommandParameter="{Binding DataSetSize}"/>
                 </WrapPanel>
 
             </Grid>

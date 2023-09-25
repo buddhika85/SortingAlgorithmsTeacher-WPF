@@ -11,7 +11,9 @@
 
         public override bool CanExecute(object? parameter)
         {
-            return true;
+            if (parameter is not null && int.TryParse(parameter.ToString(), out var currentDataSetSize))
+                return currentDataSetSize < ViewModel.MaxDataSetSize;
+            return false;
         }
 
         public override void Execute(object? parameter)
