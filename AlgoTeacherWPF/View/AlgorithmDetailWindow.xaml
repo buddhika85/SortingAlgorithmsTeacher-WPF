@@ -5,10 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AlgoTeacherWPF.View"
         mc:Ignorable="d"
-        Title="Algorithm Details" Height="450" Width="800">
+        Title="Algorithm Details" Height="850" Width="800">
 
     <Grid>
-        <Label Content="{Binding Algorithm.Name}"></Label>
-        <Label Content="{Binding Algorithm.Description}"></Label>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />       <!-- Main Header -->
+            <RowDefinition />       <!-- Description -->
+
+            <RowDefinition />       <!-- Time Complexity and stability Section Header -->
+            <RowDefinition />       <!-- Time Complexity and stability table -->
+
+            <RowDefinition />       <!-- Setup data set section header -->
+            <RowDefinition />       <!-- Original data set display - array view -->
+
+            <RowDefinition />       <!-- Configure data set form -->
+
+            <RowDefinition />       <!-- Visualization -->
+
+            <RowDefinition />       <!-- Analysis section -->
+
+            <RowDefinition />       <!-- Steps section  -->
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="{Binding Algorithm.Name}" Style="{StaticResource MainHeader}"></Label>
+        <Label Grid.Row="1" Content="{Binding Algorithm.Description}"></Label>
     </Grid>
 </Window>
