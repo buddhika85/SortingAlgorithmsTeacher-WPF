@@ -49,6 +49,17 @@
             <Setter Property="Foreground" Value="Black" />
         </Style>
 
+        <Style TargetType="Label" x:Key="ArrayCell">
+            <Setter Property="Width" Value="35" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Foreground" Value="DarkBlue" />
+        </Style>
+
 
 
         <Style TargetType="TextBlock" x:Key="AlgoDescriptionTxt">
@@ -67,6 +78,12 @@
             <Setter Property="BorderBrush" Value="Silver" />
             <Setter Property="BorderThickness" Value="2" />
             <Setter Property="CornerRadius" Value="6" />
+        </Style>
+
+        <Style TargetType="Border" x:Key="ArrayElementBorder">
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="CornerRadius" Value="1" />
         </Style>
 
         <Style TargetType="Border" x:Key="GridBorder">

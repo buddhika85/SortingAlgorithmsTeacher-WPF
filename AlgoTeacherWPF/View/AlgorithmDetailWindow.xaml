@@ -15,22 +15,22 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition />       <!-- Main Header -->
-            <RowDefinition />       <!-- Description -->
+            <RowDefinition Height="Auto" />       <!-- Main Header -->
+            <RowDefinition Height="Auto" />       <!-- Description -->
 
-            <RowDefinition />       <!-- Time Complexity and stability Section Header -->
-            <RowDefinition />       <!-- Time Complexity and stability table -->
+            <RowDefinition Height="Auto" />       <!-- Time Complexity and stability Section Header -->
+            <RowDefinition Height="Auto" />       <!-- Time Complexity and stability table -->
 
-            <RowDefinition />       <!-- Setup data set section header -->
-            <RowDefinition />       <!-- Original data set display - array view -->
+            <RowDefinition Height="Auto" />       <!-- Setup data set section header -->
+            <RowDefinition Height="Auto" />       <!-- Original data set display - array view -->
 
-            <RowDefinition />       <!-- Configure data set form -->
+            <RowDefinition Height="Auto" />       <!-- Configure data set form -->
 
-            <RowDefinition />       <!-- Visualization -->
+            <RowDefinition Height="Auto" />       <!-- Visualization -->
 
-            <RowDefinition />       <!-- Analysis section -->
+            <RowDefinition Height="Auto" />       <!-- Analysis section -->
 
-            <RowDefinition />       <!-- Steps section  -->
+            <RowDefinition Height="Auto" />       <!-- Steps section  -->
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Content="{Binding Algorithm.Name}" Style="{StaticResource MainHeader}"></Label>
@@ -39,9 +39,6 @@
         </WrapPanel>
 
         <Label Grid.Row="2" Content="Time Complexities and Stability" Style="{StaticResource SubHeader}"></Label>
-
-
-
 
         <Grid Grid.Row="3" Margin="10">
             <Grid.RowDefinitions>
@@ -97,6 +94,37 @@
                 <Label Content="{Binding Algorithm.IsStable, Converter={StaticResource BoolToStringYesNoConverter}}" Style="{StaticResource TableColumnData}"/>
             </Border>
         </Grid>
+
+        <Label Grid.Row="4" Content="Setup Demo Data Set" Style="{StaticResource SubHeader}"></Label>
+        <WrapPanel Grid.Row="5" HorizontalAlignment="Center">
+
+            <ListView x:Name="OriginalDataSetListView"
+                      ItemsSource="{Binding UnsortedDataSet}"
+                      BorderBrush="Transparent">
+
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"                                   
+                                   Margin="10"
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center"/>
+
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Border Style="{StaticResource ArrayElementBorder}">
+                            <Label Content="{Binding}" Style="{StaticResource ArrayCell}"/>
+                        </Border>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </WrapPanel>
 
     </Grid>
 </Window>
