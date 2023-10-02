@@ -158,10 +158,10 @@
                 <Label Grid.Row="1" Grid.Column="0" Content="Can Repeat  :  "
                        Style="{StaticResource FormLbl}"/>
                 <WrapPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource LeftAlignedPanel}">
-                    <RadioButton GroupName="CanRepeat" Style="{StaticResource FormRadioBtn}"
+                    <RadioButton GroupName="CanRepeat" Style="{StaticResource FormRadioBtn}" IsChecked="{Binding CanRepeatNo}"
                                  Command="{Binding CanRepeatCommand}" 
                                  CommandParameter="No">No</RadioButton>
-                    <RadioButton GroupName="CanRepeat" Style="{StaticResource FormRadioBtn}"
+                    <RadioButton GroupName="CanRepeat" Style="{StaticResource FormRadioBtn}" IsChecked="{Binding CanRepeatYes}"
                                  Command="{Binding CanRepeatCommand}" 
                                  CommandParameter="Yes">Yes</RadioButton>
                 </WrapPanel>

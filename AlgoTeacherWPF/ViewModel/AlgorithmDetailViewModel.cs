@@ -12,7 +12,7 @@ namespace AlgoTeacherWPF.ViewModel
         private const int InitialDatSetSize = 5;
         private const int Min = -5;
         private const int Max = 100;
-        private const bool DefaultCanRepeat = true;
+        private const bool DefaultCanRepeat = false;
         private const SortSpeed DefaultSortSpeed = SortSpeed.ThreeX;
         private const ComplexityCase DefaultComplexityCase = ComplexityCase.WorstCase;
 
@@ -59,7 +59,7 @@ namespace AlgoTeacherWPF.ViewModel
             }
         }
 
-        private ComplexityCase _complexityCase;
+        private ComplexityCase _complexityCase = DefaultComplexityCase;
 
         public ComplexityCase ComplexityCase
         {
@@ -72,21 +72,36 @@ namespace AlgoTeacherWPF.ViewModel
             }
         }
 
-        private bool _canRepeat = DefaultCanRepeat;
 
-        public bool CanRepeat
+        #region canRepeatRadioButtons
+
+        private bool _canRepeatYes;
+
+        public bool CanRepeatYes
         {
-            get => _canRepeat;
+            get => _canRepeatYes;
             set
             {
-                _canRepeat = value;
-                OnPropertyChanged(nameof(CanRepeat));
-                if (_canRepeat)
-                    ReArrangeDataSetToRepeats();
-                else
-                    GenerateRandomDataSet();
+                _canRepeatYes = value;
+                OnPropertyChanged(nameof(CanRepeatYes));
             }
         }
+
+        private bool _canRepeatNo;
+
+        public bool CanRepeatNo
+        {
+            get => _canRepeatNo;
+            set
+            {
+                _canRepeatNo = value;
+                OnPropertyChanged(nameof(CanRepeatNo));
+            }
+        }
+
+        #endregion canRepeatRadioButtons
+
+        #region speedRadioButtons
 
         private SortSpeed _sortSpeed = DefaultSortSpeed;
 
@@ -100,8 +115,6 @@ namespace AlgoTeacherWPF.ViewModel
                 SetSpeedRadioButtonSelection();
             }
         }
-
-        #region speedRadioButtons
 
         private bool _isOneX;
 
@@ -185,7 +198,10 @@ namespace AlgoTeacherWPF.ViewModel
                 IsStable = false,
                 Presentation = new Presentation { BackgroundColor = "Red" }
             };
-            SetupInitialData();
+
+            GenerateRandomDataSet();
+            SetCanRepeat(DefaultCanRepeat);
+
             SetupCommands();
         }
 
@@ -193,7 +209,9 @@ namespace AlgoTeacherWPF.ViewModel
         public AlgorithmDetailViewModel(Algorithm algorithm)
         {
             Algorithm = algorithm;
-            SetupInitialData();
+            GenerateRandomDataSet();
+            SetCanRepeat(DefaultCanRepeat);
+
             SetupCommands();
         }
 
@@ -216,7 +234,16 @@ namespace AlgoTeacherWPF.ViewModel
         }
         public void SetCanRepeat(bool canRepeat)
         {
-            CanRepeat = canRepeat;
+            if (canRepeat)
+            {
+                CanRepeatYes = true;
+                CanRepeatNo = false;
+            }
+            else
+            {
+                CanRepeatNo = true;
+                CanRepeatYes = false;
+            }
         }
 
         public void SetSortSpeed(SortSpeed sortSpeed)
@@ -226,11 +253,6 @@ namespace AlgoTeacherWPF.ViewModel
 
         #region helpers
 
-        private void SetupInitialData()
-        {
-            GenerateRandomDataSet();
-            ComplexityCase = DefaultComplexityCase;
-        }
 
         private void SetupCommands()
         {
@@ -245,7 +267,7 @@ namespace AlgoTeacherWPF.ViewModel
         private void GenerateRandomDataSet()
         {
             Util.GenerateRandomDataSet(Min, Max, DataSetSize, ComplexityCase, ref _unsortedDataSet);
-            if (_canRepeat)
+            if (CanRepeatYes)
                 ReArrangeDataSetToRepeats();
         }
 
@@ -265,7 +287,7 @@ namespace AlgoTeacherWPF.ViewModel
         {
             ShowSuccessMessageBox($"Sort: {Algorithm.Name}" +
                                   $"{Environment.NewLine}Size:{DataSetSize}" +
-                                  $"{Environment.NewLine}CanRepeat:{CanRepeat}" +
+                                  $"{Environment.NewLine}CanRepeat:{CanRepeatYes}" +
                                   $"{Environment.NewLine}Case:{ComplexityCase}" +
                                   $"{Environment.NewLine}Speed:{SortSpeed}");
         }
@@ -273,10 +295,10 @@ namespace AlgoTeacherWPF.ViewModel
         public void Reset()
         {
             ShowInfoMessageBox("Reset");
-            SetupInitialData();
+            DataSetSize = InitialDatSetSize;
             SetCanRepeat(DefaultCanRepeat);
             SetSortSpeed(DefaultSortSpeed);
-
+            GenerateRandomDataSet();
         }
 
 
@@ -322,5 +344,6 @@ namespace AlgoTeacherWPF.ViewModel
                     break;
             }
         }
+
     }
 }
