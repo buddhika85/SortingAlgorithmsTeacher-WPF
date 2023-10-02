@@ -139,12 +139,13 @@
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="300" />
-                    <ColumnDefinition Width="450" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" Grid.Column="0" Content="Data Set Size  :  "/>
-                <WrapPanel Grid.Row="0" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
+                <Label Grid.Row="0" Grid.Column="0" Content="Data Set Size  :  "
+                       Style="{StaticResource FormLbl}"/>
+                <WrapPanel Grid.Row="0" Grid.Column="1" Style="{StaticResource LeftAlignedPanel}">
                     <Button Content=" - " Style="{StaticResource SizeChangeBtn}" 
                             Command="{Binding DataSetSizeDecreaseCommand}"
                             CommandParameter="{Binding DataSetSize}"/>
@@ -154,8 +155,9 @@
                             CommandParameter="{Binding DataSetSize}"/>
                 </WrapPanel>
 
-                <Label Grid.Row="1" Grid.Column="0" Content="Can Repeat  :  "/>
-                <WrapPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
+                <Label Grid.Row="1" Grid.Column="0" Content="Can Repeat  :  "
+                       Style="{StaticResource FormLbl}"/>
+                <WrapPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource LeftAlignedPanel}">
                     <RadioButton GroupName="CanRepeat" IsChecked="True" Style="{StaticResource FormRadioBtn}"
                                  Command="{Binding CanRepeatCommand}" 
                                  CommandParameter="No">No</RadioButton>
@@ -164,8 +166,9 @@
                                  CommandParameter="Yes">Yes</RadioButton>
                 </WrapPanel>
 
-                <Label Grid.Row="2" Grid.Column="0" Content="Case  :  "/>
-                <WrapPanel Grid.Row="2" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
+                <Label Grid.Row="2" Grid.Column="0" Content="Case  :  "
+                       Style="{StaticResource FormLbl}"/>
+                <WrapPanel Grid.Row="2" Grid.Column="1" Style="{StaticResource LeftAlignedPanel}">
                     <RadioButton GroupName="Case" IsChecked="True" Style="{StaticResource FormRadioBtn}"
                                  Command="{Binding CaseRadioButtonSelectionCommand}"
                                  CommandParameter="Worst">Worst</RadioButton>
@@ -177,8 +180,9 @@
                                  CommandParameter="Best">Best</RadioButton>
                 </WrapPanel>
 
-                <Label Grid.Row="3" Grid.Column="0" Content="Speed  :  "/>
-                <WrapPanel Grid.Row="3" Grid.Column="1" Style="{StaticResource CenterAlignedPanel}">
+                <Label Grid.Row="3" Grid.Column="0" Content="Speed  :  "
+                       Style="{StaticResource FormLbl}"/>
+                <WrapPanel Grid.Row="3" Grid.Column="1" Style="{StaticResource LeftAlignedPanel}">
                     <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">1x</RadioButton>
                     <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">2x</RadioButton>
                     <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}" IsChecked="True">3x</RadioButton>
@@ -186,12 +190,16 @@
                     <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">5x</RadioButton>
                 </WrapPanel>
 
-                
+
+                <StackPanel Grid.Row="4" Grid.Column="0" Height="10" />
+
 
                 <!-- Empty Row Grid.Row="4" -->
 
-                <Button Grid.Row="5" Grid.Column="0" Content=" Sort "/>
-                <Button Grid.Row="5" Grid.Column="1" Content=" Reset " />
+                <WrapPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button Content=" Sort " Style="{StaticResource SortBtn}"/>
+                    <Button Content=" Reset " Style="{StaticResource ResetBtn}"/>
+                </WrapPanel>
 
             </Grid>
 

@@ -66,6 +66,10 @@
             <Setter Property="Background" Value="LightSkyBlue"></Setter>
         </Style>
 
+        <Style TargetType="Label" x:Key="FormLbl">
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+        </Style>
+
 
         <!--Text Blocks  -->
         <Style TargetType="TextBlock" x:Key="AlgoDescriptionTxt">
@@ -82,8 +86,21 @@
         </Style>
 
         <Style TargetType="Button" x:Key="SizeChangeBtn">
-        <Setter Property="Width" Value="30" />
-        <Setter Property="Padding" Value="0" />
+            <Setter Property="Width" Value="30" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+
+        <Style TargetType="Button" x:Key="SortBtn">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Background" Value="LimeGreen" />
+            <Setter Property="Foreground" Value="AntiqueWhite" />
+        </Style>
+
+        <Style TargetType="Button" x:Key="ResetBtn">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Background" Value="IndianRed" />
+            <Setter Property="Foreground" Value="AntiqueWhite" />
+            <Setter Property="Margin" Value="10,0,0,0"></Setter>
         </Style>
 
         <!-- Radio buttons-->
@@ -117,6 +134,11 @@
             <Setter Property="Background" Value="BlanchedAlmond"></Setter>
         </Style>
 
+        <Style TargetType="WrapPanel" x:Key="LeftAlignedPanel">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Background" Value="BlanchedAlmond"></Setter>
+        </Style>
 
     </Application.Resources>
 </Application>
