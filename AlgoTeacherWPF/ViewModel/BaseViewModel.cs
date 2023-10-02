@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 
 namespace AlgoTeacherWPF.ViewModel
 {
@@ -14,5 +15,20 @@ namespace AlgoTeacherWPF.ViewModel
         }
 
         #endregion INotifyPropertyChanged
+
+        protected void ShowInfoMessageBox(string message, string header = "Info")
+        {
+            MessageBox.Show(message, header, MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+        }
+
+        protected void ShowSuccessMessageBox(string message, string header = "Success")
+        {
+            MessageBox.Show(message, header, MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
+        }
+
+        protected void ShowErrorMessageBox(string message, string header = "Error")
+        {
+            MessageBox.Show(message, header, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+        }
     }
 }

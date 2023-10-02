@@ -83,6 +83,20 @@
         <Style TargetType="Button" x:Key="CellBtn">
            <Setter Property="Margin" Value="0" />
            <Setter Property="Padding" Value="0" />
+           <Setter Property="Template">
+               <Setter.Value>
+                   <ControlTemplate TargetType="{x:Type Button}">
+                       <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="1">
+                           <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                       </Border>
+                   </ControlTemplate>
+               </Setter.Value>
+           </Setter>
+           <Style.Triggers>
+               <Trigger Property="IsMouseOver" Value="True">
+                   <Setter Property="Cursor" Value="Hand"/>
+               </Trigger>
+           </Style.Triggers>
         </Style>
 
         <Style TargetType="Button" x:Key="SizeChangeBtn">
@@ -92,15 +106,48 @@
 
         <Style TargetType="Button" x:Key="SortBtn">
             <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="30"></Setter>
             <Setter Property="Background" Value="LimeGreen" />
             <Setter Property="Foreground" Value="AntiqueWhite" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Green"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
         <Style TargetType="Button" x:Key="ResetBtn">
             <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="30"></Setter>
             <Setter Property="Background" Value="IndianRed" />
             <Setter Property="Foreground" Value="AntiqueWhite" />
             <Setter Property="Margin" Value="10,0,0,0"></Setter>
+           
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="DarkRed"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
         <!-- Radio buttons-->

@@ -17,3 +17,12 @@ public enum BigOComplexity
     OTwoSquaredN,   // O(2^n)       - Exponential 
     OnBang          // O(n!)        - factorial
 }
+
+public enum SortSpeed
+{
+    OneX,
+    TwoX,
+    ThreeX,
+    FourX,
+    FiveX
+}

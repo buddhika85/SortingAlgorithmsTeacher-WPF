@@ -158,7 +158,7 @@
                 <Label Grid.Row="1" Grid.Column="0" Content="Can Repeat  :  "
                        Style="{StaticResource FormLbl}"/>
                 <WrapPanel Grid.Row="1" Grid.Column="1" Style="{StaticResource LeftAlignedPanel}">
-                    <RadioButton GroupName="CanRepeat" IsChecked="True" Style="{StaticResource FormRadioBtn}"
+                    <RadioButton GroupName="CanRepeat" Style="{StaticResource FormRadioBtn}"
                                  Command="{Binding CanRepeatCommand}" 
                                  CommandParameter="No">No</RadioButton>
                     <RadioButton GroupName="CanRepeat" Style="{StaticResource FormRadioBtn}"
@@ -183,11 +183,21 @@
                 <Label Grid.Row="3" Grid.Column="0" Content="Speed  :  "
                        Style="{StaticResource FormLbl}"/>
                 <WrapPanel Grid.Row="3" Grid.Column="1" Style="{StaticResource LeftAlignedPanel}">
-                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">1x</RadioButton>
-                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">2x</RadioButton>
-                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}" IsChecked="True">3x</RadioButton>
-                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">4x</RadioButton>
-                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}">5x</RadioButton>
+                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}" IsChecked="{Binding IsOneX}"
+                                 Command="{Binding SelectSortSpeedCommand}"
+                                 CommandParameter="oneX">1x</RadioButton>
+                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}" IsChecked="{Binding IsTwoX}"
+                                 Command="{Binding SelectSortSpeedCommand}"
+                                 CommandParameter="twoX">2x</RadioButton>
+                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}" IsChecked="{Binding IsThreeX}"
+                                 Command="{Binding SelectSortSpeedCommand}"
+                                 CommandParameter="threeX">3x</RadioButton>
+                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}" IsChecked="{Binding IsFourX}"
+                                 Command="{Binding SelectSortSpeedCommand}"
+                                 CommandParameter="fourX">4x</RadioButton>
+                    <RadioButton GroupName="Speed" Style="{StaticResource FormRadioBtn}" IsChecked="{Binding IsFiveX}"
+                                 Command="{Binding SelectSortSpeedCommand}"
+                                 CommandParameter="fiveX">5x</RadioButton>
                 </WrapPanel>
 
 
@@ -197,8 +207,10 @@
                 <!-- Empty Row Grid.Row="4" -->
 
                 <WrapPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button Content=" Sort " Style="{StaticResource SortBtn}"/>
-                    <Button Content=" Reset " Style="{StaticResource ResetBtn}"/>
+                    <Button Content=" Sort " Style="{StaticResource SortBtn}"
+                            Command="{Binding SortCommand}"/>
+                    <Button Content=" Reset " Style="{StaticResource ResetBtn}"
+                            Command="{Binding ResetCommand}"/>
                 </WrapPanel>
 
             </Grid>
