@@ -169,13 +169,13 @@
                 <Label Grid.Row="2" Grid.Column="0" Content="Case  :  "
                        Style="{StaticResource FormLbl}"/>
                 <WrapPanel Grid.Row="2" Grid.Column="1" Style="{StaticResource LeftAlignedPanel}">
-                    <RadioButton GroupName="Case" IsChecked="True" Style="{StaticResource FormRadioBtn}"
+                    <RadioButton GroupName="Case" Style="{StaticResource FormRadioBtn}" IsChecked="{Binding IsWorstCase}" 
                                  Command="{Binding CaseRadioButtonSelectionCommand}"
                                  CommandParameter="Worst">Worst</RadioButton>
-                    <RadioButton GroupName="Case" Style="{StaticResource FormRadioBtn}"
+                    <RadioButton GroupName="Case" Style="{StaticResource FormRadioBtn}" IsChecked="{Binding IsAverageCase}" 
                                  Command="{Binding CaseRadioButtonSelectionCommand}"
                                  CommandParameter="Average">Average</RadioButton>
-                    <RadioButton GroupName="Case" Style="{StaticResource FormRadioBtn}"
+                    <RadioButton GroupName="Case" Style="{StaticResource FormRadioBtn}" IsChecked="{Binding IsBestCase}" 
                                  Command="{Binding CaseRadioButtonSelectionCommand}"
                                  CommandParameter="Best">Best</RadioButton>
                 </WrapPanel>

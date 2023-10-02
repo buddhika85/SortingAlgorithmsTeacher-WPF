@@ -14,7 +14,7 @@ namespace AlgoTeacherWPF.ViewModel
         private const int Max = 100;
         private const bool DefaultCanRepeat = false;
         private const SortSpeed DefaultSortSpeed = SortSpeed.ThreeX;
-        private const ComplexityCase DefaultComplexityCase = ComplexityCase.WorstCase;
+        private const ComplexityCase DefaultComplexityCase = ComplexityCase.AverageCase;
 
         internal readonly int MinDataSetSize = 2;      // made these internal to access from command class
         internal readonly int MaxDataSetSize = 10;
@@ -59,6 +59,8 @@ namespace AlgoTeacherWPF.ViewModel
             }
         }
 
+        #region complexityCaseRadioButtons
+
         private ComplexityCase _complexityCase = DefaultComplexityCase;
 
         public ComplexityCase ComplexityCase
@@ -72,6 +74,43 @@ namespace AlgoTeacherWPF.ViewModel
             }
         }
 
+        private bool _isWorstCase;
+
+        public bool IsWorstCase
+        {
+            get => _isWorstCase;
+            set
+            {
+                _isWorstCase = value;
+                OnPropertyChanged(nameof(IsWorstCase));
+            }
+        }
+
+        private bool _isAverageCase;
+
+        public bool IsAverageCase
+        {
+            get => _isAverageCase;
+            set
+            {
+                _isAverageCase = value;
+                OnPropertyChanged(nameof(IsAverageCase));
+            }
+        }
+
+        private bool _isBestCase;
+
+        public bool IsBestCase
+        {
+            get => _isBestCase;
+            set
+            {
+                _isBestCase = value;
+                OnPropertyChanged(nameof(IsBestCase));
+            }
+        }
+
+        #endregion complexityCaseRadioButtons
 
         #region canRepeatRadioButtons
 
@@ -199,6 +238,7 @@ namespace AlgoTeacherWPF.ViewModel
                 Presentation = new Presentation { BackgroundColor = "Red" }
             };
 
+            SelectCaseRadioButton();
             GenerateRandomDataSet();
             SetCanRepeat(DefaultCanRepeat);
 
@@ -209,6 +249,7 @@ namespace AlgoTeacherWPF.ViewModel
         public AlgorithmDetailViewModel(Algorithm algorithm)
         {
             Algorithm = algorithm;
+            SelectCaseRadioButton();
             GenerateRandomDataSet();
             SetCanRepeat(DefaultCanRepeat);
 
@@ -231,7 +272,9 @@ namespace AlgoTeacherWPF.ViewModel
         public void SetComplexityCase(ComplexityCase complexityCase)
         {
             ComplexityCase = complexityCase;
+            SelectCaseRadioButton();
         }
+
         public void SetCanRepeat(bool canRepeat)
         {
             if (canRepeat)
@@ -286,10 +329,10 @@ namespace AlgoTeacherWPF.ViewModel
         public void Sort()
         {
             ShowSuccessMessageBox($"Sort: {Algorithm.Name}" +
-                                  $"{Environment.NewLine}Size:{DataSetSize}" +
-                                  $"{Environment.NewLine}CanRepeat:{CanRepeatYes}" +
-                                  $"{Environment.NewLine}Case:{ComplexityCase}" +
-                                  $"{Environment.NewLine}Speed:{SortSpeed}");
+                                  $"{Environment.NewLine}Size: => {DataSetSize}" +
+                                  $"{Environment.NewLine}CanRepeat: => {CanRepeatYes}" +
+                                  $"{Environment.NewLine}Case: => {ComplexityCase}" +
+                                  $"{Environment.NewLine}Speed: => {SortSpeed}");
         }
 
         public void Reset()
@@ -298,6 +341,7 @@ namespace AlgoTeacherWPF.ViewModel
             DataSetSize = InitialDatSetSize;
             SetCanRepeat(DefaultCanRepeat);
             SetSortSpeed(DefaultSortSpeed);
+            SetComplexityCase(DefaultComplexityCase);
             GenerateRandomDataSet();
         }
 
@@ -345,5 +389,27 @@ namespace AlgoTeacherWPF.ViewModel
             }
         }
 
+        private void SelectCaseRadioButton()
+        {
+            switch (ComplexityCase)
+            {
+                case ComplexityCase.WorstCase:
+                    IsWorstCase = true;
+                    IsAverageCase = false;
+                    IsBestCase = false;
+                    break;
+                case ComplexityCase.BestCase:
+                    IsWorstCase = false;
+                    IsAverageCase = false;
+                    IsBestCase = true;
+                    break;
+                case ComplexityCase.AverageCase:
+                default:
+                    IsWorstCase = false;
+                    IsAverageCase = true;
+                    IsBestCase = false;
+                    break;
+            }
+        }
     }
 }
