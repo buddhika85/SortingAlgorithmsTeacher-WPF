@@ -41,7 +41,19 @@ namespace AlgoTeacherWPF.ViewModel
             set
             {
                 _unsortedDataSet = value;
+                PopulateSortedDataSet();
                 OnPropertyChanged(nameof(UnsortedDataSet));
+            }
+        }
+
+        private ObservableCollection<int> _sortedDataSet = new();
+        public ObservableCollection<int> SortedDataSet
+        {
+            get => _sortedDataSet;
+            set
+            {
+                _sortedDataSet = value;
+                OnPropertyChanged(nameof(SortedDataSet));
             }
         }
 
@@ -294,6 +306,18 @@ namespace AlgoTeacherWPF.ViewModel
             SortSpeed = sortSpeed;
         }
 
+
+        private void PopulateSortedDataSet()
+        {
+            SortedDataSet.Clear();
+            foreach (var item in UnsortedDataSet)
+            {
+                SortedDataSet.Add(item);
+            }
+
+            OnPropertyChanged(nameof(SortedDataSet));
+        }
+
         #region helpers
 
 
@@ -307,44 +331,25 @@ namespace AlgoTeacherWPF.ViewModel
             ResetCommand = new ResetCommand(this);
             SelectSortSpeedCommand = new SelectSortSpeedCommand(this);
         }
+
         private void GenerateRandomDataSet()
         {
             Util.GenerateRandomDataSet(Min, Max, DataSetSize, ComplexityCase, ref _unsortedDataSet);
             if (CanRepeatYes)
                 ReArrangeDataSetToRepeats();
+            PopulateSortedDataSet();
         }
 
         private void ReArrangeDataSet()
         {
             Util.ReArrangeDataSet(ComplexityCase, ref _unsortedDataSet);
+            PopulateSortedDataSet();
         }
 
         private void ReArrangeDataSetToRepeats()
         {
             Util.ReArrangeDataSetToRepeats(ref _unsortedDataSet);
         }
-
-        #endregion helpers
-
-        public void Sort()
-        {
-            ShowSuccessMessageBox($"Sort: {Algorithm.Name}" +
-                                  $"{Environment.NewLine}Size: => {DataSetSize}" +
-                                  $"{Environment.NewLine}CanRepeat: => {CanRepeatYes}" +
-                                  $"{Environment.NewLine}Case: => {ComplexityCase}" +
-                                  $"{Environment.NewLine}Speed: => {SortSpeed}");
-        }
-
-        public void Reset()
-        {
-            ShowInfoMessageBox("Reset");
-            DataSetSize = InitialDatSetSize;
-            SetCanRepeat(DefaultCanRepeat);
-            SetSortSpeed(DefaultSortSpeed);
-            SetComplexityCase(DefaultComplexityCase);
-            GenerateRandomDataSet();
-        }
-
 
         private void SetSpeedRadioButtonSelection()
         {
@@ -411,5 +416,27 @@ namespace AlgoTeacherWPF.ViewModel
                     break;
             }
         }
+
+        #endregion helpers
+
+        public void Sort()
+        {
+            ShowSuccessMessageBox($"Sort: {Algorithm.Name}" +
+                                  $"{Environment.NewLine}Size: => {DataSetSize}" +
+                                  $"{Environment.NewLine}CanRepeat: => {CanRepeatYes}" +
+                                  $"{Environment.NewLine}Case: => {ComplexityCase}" +
+                                  $"{Environment.NewLine}Speed: => {SortSpeed}");
+        }
+
+        public void Reset()
+        {
+            ShowInfoMessageBox("Reset");
+            DataSetSize = InitialDatSetSize;
+            SetCanRepeat(DefaultCanRepeat);
+            SetSortSpeed(DefaultSortSpeed);
+            SetComplexityCase(DefaultComplexityCase);
+            GenerateRandomDataSet();
+        }
+
     }
 }

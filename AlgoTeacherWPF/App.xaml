@@ -55,9 +55,21 @@
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="FontSize" Value="12" />
             <Setter Property="Foreground" Value="DarkBlue" />
+
+        </Style>
+
+        <Style TargetType="Label" x:Key="ArrayCellSmaller">
+            <Setter Property="Width" Value="32" />
+            <Setter Property="Height" Value="32" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Foreground" Value="MediumSlateBlue" />
         </Style>
 
         <Style TargetType="Label" x:Key="SizeLbl">
@@ -165,6 +177,12 @@
 
         <Style TargetType="Border" x:Key="ArrayElementBorder">
             <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="CornerRadius" Value="1" />
+        </Style>
+
+        <Style TargetType="Border" x:Key="ArrayElementBorderSorted">
+            <Setter Property="BorderBrush" Value="MediumPurple" />
             <Setter Property="BorderThickness" Value="2" />
             <Setter Property="CornerRadius" Value="1" />
         </Style>

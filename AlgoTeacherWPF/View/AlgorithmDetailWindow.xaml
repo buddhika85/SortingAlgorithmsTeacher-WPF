@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:AlgoTeacherWPF.View"
         xmlns:converters="clr-namespace:AlgoTeacherWPF.Converters"
         mc:Ignorable="d"
-        Title="Algorithm Details" Height="850" Width="800">
+        Title="Algorithm Details" Height="1000" Width="1000"
+        ResizeMode="NoResize">
 
     <Window.Resources>
         <converters:BoolToStringYesNoConverter x:Key="BoolToStringYesNoConverter" />
@@ -217,5 +218,57 @@
 
         </WrapPanel>
 
+     
+        <Grid Grid.Row="7" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="490"/>
+                <ColumnDefinition Width="490" />
+            </Grid.ColumnDefinitions>
+
+            <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
+                <Label  Content="Bar Chart Visualizer" Style="{StaticResource SubHeader}"
+                        />
+            </WrapPanel>
+
+            <WrapPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">
+                <Label Content="Array Visualizer" Style="{StaticResource SubHeader}"/>
+            </WrapPanel>
+
+            <WrapPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+                <ListView x:Name="SortedDataSetListView"
+                          ItemsSource="{Binding SortedDataSet}"
+                          BorderBrush="Transparent">
+
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"                                   
+                                       Margin="10"
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
+
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <Border Style="{StaticResource ArrayElementBorderSorted}">
+                                <Label Content="{Binding}" Style="{StaticResource ArrayCellSmaller}"/>
+                            </Border>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+            </WrapPanel>
+        </Grid>
+
+            
+       
     </Grid>
 </Window>
