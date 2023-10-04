@@ -78,7 +78,7 @@
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="FontSize" Value="12" />
-            <Setter Property="Foreground" Value="DarkBlue" />
+            <Setter Property="Foreground" Value="ForestGreen" />
 
         </Style>
 
@@ -219,7 +219,7 @@
         </Style>
 
         <Style TargetType="Border" x:Key="ArrayElementBorder">
-            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="BorderBrush" Value="DarkSeaGreen" />
             <Setter Property="BorderThickness" Value="2" />
             <Setter Property="CornerRadius" Value="1" />
         </Style>
