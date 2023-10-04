@@ -21,8 +21,7 @@ namespace AlgoTeacherWPF.Utilities
 
         public static void ReArrangeDataSet(ComplexityCase complexityCase, ref ObservableCollection<NumberModel> unsortedDataSet)
         {
-            var tempList = unsortedDataSet.ToList();
-            tempList.Sort();
+            var tempList = unsortedDataSet.ToList().OrderBy(x => x.Number).ToList();
             ArrangeIntListByComplexityCase(complexityCase, tempList);
             PopulateObservableCollection(unsortedDataSet, tempList);
         }
