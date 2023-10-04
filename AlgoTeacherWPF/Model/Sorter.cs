@@ -7,6 +7,11 @@ namespace AlgoTeacherWPF.Model
 {
     public class Sorter : ObservableModel
     {
+        private const int SwapIntervalOneX = 4000;
+        private const int SwapIntervalTwoX = 3000;
+        private const int SwapIntervalThreeX = 2000;
+        private const int SwapIntervalFourX = 1000;
+        private const int SwapIntervalFiveX = 100;
         public async Task BubbleSort(AlgorithmDetailViewModel algorithmDetailViewModel)
         {
             await Task.Run(() =>
@@ -95,14 +100,15 @@ namespace AlgoTeacherWPF.Model
 
         private static int GetSwapInterval(SortSpeed speed)
         {
+
             return speed switch
             {
-                SortSpeed.OneX => 5000,
-                SortSpeed.TwoX => 4000,
-                SortSpeed.FourX => 2000,
-                SortSpeed.FiveX => 1000,
-                SortSpeed.ThreeX => 3000,
-                _ => 3000
+                SortSpeed.OneX => SwapIntervalOneX,
+                SortSpeed.TwoX => SwapIntervalTwoX,
+                SortSpeed.FourX => SwapIntervalFourX,
+                SortSpeed.FiveX => SwapIntervalFiveX,
+                SortSpeed.ThreeX => SwapIntervalThreeX,
+                _ => SwapIntervalThreeX
             };
         }
     }

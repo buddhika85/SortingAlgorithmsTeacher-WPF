@@ -28,5 +28,6 @@
            </lvc:CartesianChart.AxisY>
 
         </lvc:CartesianChart>
+
     </Grid>
 </UserControl>

@@ -277,8 +277,8 @@
                                 </Border>
                                 <!-- right arrow -->
                                 <TextBlock Text="&#x2794;" 
-                                           Visibility="{Binding IsRightArrowVisible, 
-                                            Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           Foreground="Tomato"
+                                           Visibility="{Binding IsRightArrowVisible, Converter={StaticResource BoolToVisibilityConverter}}" 
                                            HorizontalAlignment="Center" />
                             </WrapPanel>
 
