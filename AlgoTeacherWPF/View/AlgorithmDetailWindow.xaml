@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         Title="Algorithm Details" Height="1000" Width="1000"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Style="{StaticResource DarkWindow}">
 
     <Window.Resources>
         <converters:BoolToStringYesNoConverter x:Key="BoolToStringYesNoConverter" />

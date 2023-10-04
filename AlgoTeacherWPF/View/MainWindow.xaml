@@ -7,6 +7,7 @@
         Title="Main Window - Sorting Algorithms" Height="300" Width="620"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
+        Style="{StaticResource DarkWindow}"
         xmlns:viewModels="clr-namespace:AlgoTeacherWPF.ViewModel">  <!-- namespace for view models-->
 
     <Window.Resources>
@@ -34,7 +35,8 @@
 
         <ListView Grid.Row="1" x:Name="AlgorithmsListView" 
                   ItemsSource="{Binding Algorithms}" 
-                  BorderBrush="Transparent">
+                  BorderBrush="Transparent"
+                  Style="{StaticResource DarkListView}">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -52,11 +54,12 @@
 
                     <Border Style="{StaticResource CellBtnBorder}">
                         <Button Style="{StaticResource CellBtn}"
-                            Command="{Binding ElementName=AlgorithmsListView, Path=DataContext.AlgorithmSelectionCommand}"
+                            Command="{Binding ElementName=AlgorithmsListView, 
+                            Path=DataContext.AlgorithmSelectionCommand}"
                             CommandParameter="{Binding Id}">
                         
-                            <Label Content="{Binding Name}" Style="{StaticResource Cell}"
-                                   Background="{Binding Presentation.BackgroundColor}" />
+                            <Label Content="{Binding Name}" Style="{StaticResource Cell}" 
+                                   Foreground="LightGoldenrodYellow"/>
                        
                         </Button>
                     </Border>
