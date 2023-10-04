@@ -9,14 +9,14 @@
              d:DesignHeight="400" d:DesignWidth="400">
     <Grid>
 
-       <lvc:CartesianChart>
+        <lvc:CartesianChart DisableAnimations="{Binding DisableAnimations}">
 
-           <lvc:CartesianChart.Series>
-                <lvc:ColumnSeries Title="Sort Result" Values="{Binding NumbersToSort}" />
+            <lvc:CartesianChart.Series>
+                <lvc:ColumnSeries Title="Sort Result" Values="{Binding NumbersToSort}" Fill="Green" />
             </lvc:CartesianChart.Series>
 
            <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Number names" Labels="{Binding NumberLabels}" >
+                <lvc:Axis Title="Numbers" Labels="{Binding NumberLabels}" >
                     <lvc:Axis.Separator>
                         <lvc:Separator Step="1" />
                     </lvc:Axis.Separator>
@@ -24,7 +24,7 @@
            </lvc:CartesianChart.AxisX>
 
            <lvc:CartesianChart.AxisY>
-               <lvc:Axis Title="Number values" />
+               <lvc:Axis Title="" />
            </lvc:CartesianChart.AxisY>
 
         </lvc:CartesianChart>

@@ -9,19 +9,22 @@ namespace AlgoTeacherWPF.ViewModel
 {
     public class SortVisualizationChartViewModel
     {
+        public bool DisableAnimations { get; set; } = true;
         public ChartValues<int> NumbersToSort { get; set; }
         public string[] NumberLabels { get; set; }
+
         private SortVisualizationChartViewModel()
         {
             NumbersToSort = new();
             NumberLabels = Array.Empty<string>();
         }
 
-        public static SortVisualizationChartViewModel LoadViewModel(ObservableCollection<NumberModel> dataSet, Action<Task> onLoaded = null)
+        public static SortVisualizationChartViewModel LoadViewModel(ObservableCollection<NumberModel> dataSet, Action<Task>? onLoaded = null)
         {
             var viewModel = new SortVisualizationChartViewModel();
             viewModel.Load(dataSet).ContinueWith(t => onLoaded?.Invoke(t));
             return viewModel;
+
         }
 
 
