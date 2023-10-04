@@ -133,6 +133,7 @@ namespace AlgoTeacherWPF.ViewModel
             set
             {
                 _canRepeatYes = value;
+                GenerateRandomDataSet();
                 OnPropertyChanged(nameof(CanRepeatYes));
             }
         }
