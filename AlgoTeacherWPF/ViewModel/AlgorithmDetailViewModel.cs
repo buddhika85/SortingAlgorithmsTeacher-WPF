@@ -3,6 +3,7 @@ using AlgoTeacherWPF.Model.Enums;
 using AlgoTeacherWPF.Utilities;
 using AlgoTeacherWPF.ViewModel.Commands;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace AlgoTeacherWPF.ViewModel
 {
@@ -246,6 +247,25 @@ namespace AlgoTeacherWPF.ViewModel
 
         #endregion operationsCounts
 
+        #region charts
+
+        //public SortVisualizationChartViewModel SortVisualizationChartViewModel { get; set; } = null!;
+        private SortVisualizationChartViewModel _sortVisualizationChartViewModel = null!;
+
+        public SortVisualizationChartViewModel SortVisualizationChartViewModel
+        {
+            get => _sortVisualizationChartViewModel;
+            set
+            {
+                _sortVisualizationChartViewModel = value;
+                OnPropertyChanged(nameof(SortVisualizationChartViewModel));
+            }
+        }
+
+
+
+        #endregion charts
+
         #region constructors
 
         // This constructor is used for testing and UI design purposes
@@ -272,6 +292,8 @@ namespace AlgoTeacherWPF.ViewModel
             SetCanRepeat(DefaultCanRepeat);
             SetSpeedRadioButtonSelection();
 
+            SetupSortVisualizationChartViewModel();
+
             SetupCommands();
         }
 
@@ -284,6 +306,8 @@ namespace AlgoTeacherWPF.ViewModel
             GenerateRandomDataSet();
             SetCanRepeat(DefaultCanRepeat);
             SetSpeedRadioButtonSelection();
+
+            SetupSortVisualizationChartViewModel();
 
             SetupCommands();
         }
@@ -358,12 +382,14 @@ namespace AlgoTeacherWPF.ViewModel
             if (CanRepeatYes)
                 ReArrangeDataSetToRepeats();
             PopulateSortedDataSet();
+            SetupSortVisualizationChartViewModel();
         }
 
         private void ReArrangeDataSet()
         {
             Util.ReArrangeDataSet(ComplexityCase, ref _unsortedDataSet);
             PopulateSortedDataSet();
+            SetupSortVisualizationChartViewModel();
         }
 
         private void ReArrangeDataSetToRepeats()
@@ -442,6 +468,14 @@ namespace AlgoTeacherWPF.ViewModel
             SortResultModel = new() { AlgorithmName = "Bubble Sort" };
         }
 
+        public void SetupSortVisualizationChartViewModel()
+        {
+            Task.Run(() =>
+            {
+                SortVisualizationChartViewModel = SortVisualizationChartViewModel.LoadViewModel(_sortedDataSet);
+            });
+        }
+
         #endregion helpers
 
         public async void Sort()
@@ -452,7 +486,8 @@ namespace AlgoTeacherWPF.ViewModel
             //                      $"{Environment.NewLine}Case: => {ComplexityCase}" +
             //                      $"{Environment.NewLine}Speed: => {SortSpeed}");
 
-            await new Sorter().BubbleSort(_sortedDataSet, SortSpeed, SortResultModel);
+            //await new Sorter().BubbleSort(_sortedDataSet, SortSpeed, SortResultModel, this);
+            await new Sorter().BubbleSort(this);
             ShowSuccessMessageBox($"{Algorithm.Name} Completed");
         }
 

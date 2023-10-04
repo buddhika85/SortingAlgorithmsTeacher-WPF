@@ -4,7 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AlgoTeacherWPF.View"
+        xmlns:userControls="clr-namespace:AlgoTeacherWPF.View.UserControls"
         xmlns:converters="clr-namespace:AlgoTeacherWPF.Converters"
+        
+        
+        
         mc:Ignorable="d"
         Title="Algorithm Details" Height="1000" Width="1000"
         WindowStartupLocation="CenterScreen"
@@ -226,7 +230,7 @@
         <Grid Grid.Row="7" HorizontalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="300" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -243,7 +247,10 @@
             </WrapPanel>
 
             <!-- bar chart visualization -->
-
+            <userControls:SortVisualizationChartUserControl 
+                Grid.Row="1" Grid.Column="0" 
+                DataContext="{Binding SortVisualizationChartViewModel}">
+            </userControls:SortVisualizationChartUserControl>
             <!-- array visualization -->
             <WrapPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
                 <ListView x:Name="SortedDataSetListView"
