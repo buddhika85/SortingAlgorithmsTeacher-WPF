@@ -23,11 +23,11 @@
         <!-- headers, labels -->
         <Style TargetType="Label" x:Key="MainHeader">
             <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="Foreground" Value="DarkOliveGreen" />
             <Setter Property="FontSize" Value="20" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Margin" Value="0, 10 ,0, 10" />
+            <Setter Property="Foreground" Value="YellowGreen" />
         </Style>
 
         <Style TargetType="Label" x:Key="SubHeader">
@@ -36,6 +36,7 @@
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Margin" Value="0, 10 ,0, 10" />
+            <Setter Property="Foreground" Value="YellowGreen" />
         </Style>
 
 
@@ -44,6 +45,7 @@
             <Setter Property="FontSize" Value="14" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="Tomato" />
         </Style>
 
         <Style TargetType="Label" x:Key="TableColumnData">
@@ -52,6 +54,7 @@
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Foreground" Value="DarkBlue" />
+            <Setter Property="Foreground" Value="WhiteSmoke" />
         </Style>
 
         
@@ -91,13 +94,16 @@
         </Style>
 
         <Style TargetType="Label" x:Key="SizeLbl">
-            <Setter Property="Margin" Value="5, 0, 5, 0"></Setter>
-            <Setter Property="Padding" Value="5, 0, 5, 0"></Setter>
-            <Setter Property="Background" Value="LightSkyBlue"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Foreground" Value="Tomato"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
         </Style>
 
         <Style TargetType="Label" x:Key="FormLbl">
-            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Foreground" Value="WhiteSmoke" />
         </Style>
 
 
@@ -106,7 +112,7 @@
             <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="TextAlignment" Value="Justify" />
             <Setter Property="Margin" Value="10" />
-            <Setter Property="Foreground" Value="DarkBlue" />
+            <Setter Property="Foreground" Value="WhiteSmoke" />
         </Style>
 
         <!--Buttons  -->
@@ -132,6 +138,24 @@
         <Style TargetType="Button" x:Key="SizeChangeBtn">
             <Setter Property="Width" Value="30" />
             <Setter Property="Padding" Value="0" />
+        </Style>
+
+
+        <Style TargetType="Button" x:Key="SizeDecreaseBtn">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Background" Value="DarkRed" />
+            <Setter Property="Foreground" Value="WhiteSmoke" />
+        </Style>
+
+
+        <Style TargetType="Button" x:Key="SizeIncreaseBtn">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Background" Value="ForestGreen" />
+            <Setter Property="Foreground" Value="WhiteSmoke" />
         </Style>
 
         <Style TargetType="Button" x:Key="SortBtn">
@@ -184,6 +208,7 @@
         <Style TargetType="RadioButton" x:Key="FormRadioBtn">
             <Setter Property="Margin" Value="10 2 10 1" />
             <Setter Property="Padding" Value="10 2 10 1" />
+            <Setter Property="Foreground" Value="WhiteSmoke" />
         </Style>
 
         <!-- Borders -->
@@ -206,7 +231,7 @@
         </Style>
 
         <Style TargetType="Border" x:Key="GridBorder">
-            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="BorderBrush" Value="DarkSeaGreen" />
             <Setter Property="BorderThickness" Value="1" />
         </Style>
 
@@ -220,7 +245,7 @@
         <Style TargetType="WrapPanel" x:Key="LeftAlignedPanel">
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Background" Value="BlanchedAlmond"></Setter>
+            <Setter Property="Background" Value="Transparent"></Setter>
         </Style>
 
     </Application.Resources>

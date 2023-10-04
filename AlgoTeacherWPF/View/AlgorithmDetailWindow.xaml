@@ -151,11 +151,11 @@
                 <Label Grid.Row="0" Grid.Column="0" Content="Data Set Size  :  "
                        Style="{StaticResource FormLbl}"/>
                 <WrapPanel Grid.Row="0" Grid.Column="1" Style="{StaticResource LeftAlignedPanel}">
-                    <Button Content=" - " Style="{StaticResource SizeChangeBtn}" 
+                    <Button Content=" - " Style="{StaticResource SizeDecreaseBtn}" 
                             Command="{Binding DataSetSizeDecreaseCommand}"
                             CommandParameter="{Binding DataSetSize}"/>
                     <Label Content="{Binding DataSetSize}" Style="{StaticResource SizeLbl}"/>
-                    <Button Content=" + " Style="{StaticResource SizeChangeBtn}" 
+                    <Button Content=" + " Style="{StaticResource SizeIncreaseBtn}" 
                             Command="{Binding DataSetSizeIncreaseCommand}"
                             CommandParameter="{Binding DataSetSize}"/>
                 </WrapPanel>
