@@ -117,7 +117,8 @@
                     <DataTemplate>
 
                         <Border Style="{StaticResource ArrayElementBorder}">
-                            <Label Content="{Binding}" Style="{StaticResource ArrayCell}"/>
+                            <Label Content="{Binding Number}" 
+                                   Style="{StaticResource ArrayCell}"/>
                         </Border>
 
                     </DataTemplate>
@@ -258,7 +259,7 @@
                         <DataTemplate>
 
                             <Border Style="{StaticResource ArrayElementBorderSorted}">
-                                <Label Content="{Binding}" Style="{StaticResource ArrayCellSmaller}"/>
+                                <Label Content="{Binding Number}" Style="{StaticResource ArrayCellSmaller}"/>
                             </Border>
 
                         </DataTemplate>

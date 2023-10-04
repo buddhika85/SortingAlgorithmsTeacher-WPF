@@ -34,8 +34,8 @@ namespace AlgoTeacherWPF.ViewModel
 
 
 
-        private ObservableCollection<int> _unsortedDataSet = new();
-        public ObservableCollection<int> UnsortedDataSet
+        private ObservableCollection<NumberModel> _unsortedDataSet = new();
+        public ObservableCollection<NumberModel> UnsortedDataSet
         {
             get => _unsortedDataSet;
             set
@@ -46,8 +46,8 @@ namespace AlgoTeacherWPF.ViewModel
             }
         }
 
-        private ObservableCollection<int> _sortedDataSet = new();
-        public ObservableCollection<int> SortedDataSet
+        private ObservableCollection<NumberModel> _sortedDataSet = new();
+        public ObservableCollection<NumberModel> SortedDataSet
         {
             get => _sortedDataSet;
             set
@@ -426,7 +426,13 @@ namespace AlgoTeacherWPF.ViewModel
                                   $"{Environment.NewLine}CanRepeat: => {CanRepeatYes}" +
                                   $"{Environment.NewLine}Case: => {ComplexityCase}" +
                                   $"{Environment.NewLine}Speed: => {SortSpeed}");
+
+            Sorter.BubbleSort(_sortedDataSet, SortSpeed);
+
+            //PerformBubbleSort();
         }
+
+
 
         public void Reset()
         {
@@ -437,6 +443,27 @@ namespace AlgoTeacherWPF.ViewModel
             SetComplexityCase(DefaultComplexityCase);
             GenerateRandomDataSet();
         }
+
+        // below works - This was moved to Sorter static class - modularity, reusability, separation of concerns
+        //private void PerformBubbleSort()
+        //{
+        //    Task.Run(() =>
+        //    {
+        //        for (var round = 0; round < SortedDataSet.Count - 1; round++)
+        //        {
+        //            for (var i = 0; i < SortedDataSet.Count - round - 1; i++)
+        //            {
+        //                if (SortedDataSet[i].Number > SortedDataSet[i + 1].Number)
+        //                {
+        //                    (SortedDataSet[i].Number, SortedDataSet[i + 1].Number) =
+        //                        (SortedDataSet[i + 1].Number, SortedDataSet[i].Number);
+        //                    OnPropertyChanged(nameof(SortedDataSet));
+        //                    Thread.Sleep(2000);
+        //                }
+        //            }
+        //        }
+        //    });
+        //}
 
     }
 }

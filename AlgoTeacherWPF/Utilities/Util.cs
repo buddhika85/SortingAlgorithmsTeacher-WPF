@@ -1,4 +1,5 @@
-﻿using AlgoTeacherWPF.Model.Enums;
+﻿using AlgoTeacherWPF.Model;
+using AlgoTeacherWPF.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,15 +11,15 @@ namespace AlgoTeacherWPF.Utilities
     {
         private const int OneRepeatCount = 5;
         private const int TwoRepeatCount = 8;
-        public static void GenerateRandomDataSet(int min, int max, int datSetSize, ComplexityCase complexityCase, ref ObservableCollection<int> unsortedDataSet)
+        public static void GenerateRandomDataSet(int min, int max, int datSetSize, ComplexityCase complexityCase, ref ObservableCollection<NumberModel> unsortedDataSet)
         {
-            var tempList = GetRandomIntList(min, max, datSetSize);
-            tempList.Sort();
+            var tempList = GetRandomIntList(min, max, datSetSize).OrderBy(x => x.Number).ToList();
+
             ArrangeIntListByComplexityCase(complexityCase, tempList);
             PopulateObservableCollection(unsortedDataSet, tempList);
         }
 
-        public static void ReArrangeDataSet(ComplexityCase complexityCase, ref ObservableCollection<int> unsortedDataSet)
+        public static void ReArrangeDataSet(ComplexityCase complexityCase, ref ObservableCollection<NumberModel> unsortedDataSet)
         {
             var tempList = unsortedDataSet.ToList();
             tempList.Sort();
@@ -26,7 +27,7 @@ namespace AlgoTeacherWPF.Utilities
             PopulateObservableCollection(unsortedDataSet, tempList);
         }
 
-        public static void ReArrangeDataSetToRepeats(ref ObservableCollection<int> unsortedDataSet)
+        public static void ReArrangeDataSetToRepeats(ref ObservableCollection<NumberModel> unsortedDataSet)
         {
             switch (unsortedDataSet.Count)
             {
@@ -47,7 +48,7 @@ namespace AlgoTeacherWPF.Utilities
             }
         }
 
-        private static void PopulateObservableCollection(ObservableCollection<int> unsortedDataSet, List<int> tempList)
+        private static void PopulateObservableCollection(ObservableCollection<NumberModel> unsortedDataSet, List<NumberModel> tempList)
         {
             unsortedDataSet.Clear();
             foreach (var item in tempList)
@@ -56,7 +57,7 @@ namespace AlgoTeacherWPF.Utilities
             }
         }
 
-        private static void ArrangeIntListByComplexityCase(ComplexityCase complexityCase, List<int> tempList)
+        private static void ArrangeIntListByComplexityCase(ComplexityCase complexityCase, List<NumberModel> tempList)
         {
             switch (complexityCase)
             {
@@ -74,13 +75,13 @@ namespace AlgoTeacherWPF.Utilities
             }
         }
 
-        private static List<int> GetRandomIntList(int min, int max, int datSetSize)
+        private static List<NumberModel> GetRandomIntList(int min, int max, int datSetSize)
         {
             Random rnd = new();
-            List<int> tempList = new();
+            List<NumberModel> tempList = new();
             for (var i = 0; i < datSetSize; i++)
             {
-                tempList.Add(rnd.Next(min, max + 1));
+                tempList.Add(new NumberModel { Number = rnd.Next(min, max + 1) });
             }
 
             return tempList;
