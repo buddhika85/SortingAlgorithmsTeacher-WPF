@@ -53,7 +53,6 @@
             <Setter Property="FontSize" Value="14" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Foreground" Value="DarkBlue" />
             <Setter Property="Foreground" Value="WhiteSmoke" />
         </Style>
 
@@ -65,9 +64,23 @@
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontSize" Value="16" />
             <Setter Property="Foreground" Value="WhiteSmoke" />
-            <Setter Property="Background" Value="DarkOliveGreen" />
+            <Setter Property="Background" Value="LimeGreen" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="CellTextBlock">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="100" />
+            <Setter Property="Padding" Value="12" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Background" Value="LimeGreen" />
         </Style>
 
         <Style TargetType="Label" x:Key="ArrayCell">
@@ -213,7 +226,7 @@
 
         <!-- Borders -->
         <Style TargetType="Border" x:Key="CellBtnBorder">
-            <Setter Property="BorderBrush" Value="DarkOliveGreen" />
+            <Setter Property="BorderBrush" Value="LimeGreen" />
             <Setter Property="BorderThickness" Value="2" />
             <Setter Property="CornerRadius" Value="6" />
         </Style>

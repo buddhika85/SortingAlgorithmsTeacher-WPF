@@ -58,8 +58,9 @@
                             Path=DataContext.AlgorithmSelectionCommand}"
                             CommandParameter="{Binding Id}">
                         
-                            <Label Content="{Binding Name}" Style="{StaticResource Cell}" 
-                                   Foreground="LightGoldenrodYellow"/>
+                            <!--<Label Content="{Binding Name}" Style="{StaticResource Cell}" 
+                                   Foreground="WhiteSmoke"/>-->
+                            <TextBlock Text="{Binding Name}" Style="{StaticResource CellTextBlock}" />
                        
                         </Button>
                     </Border>
