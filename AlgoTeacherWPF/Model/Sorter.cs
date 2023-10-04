@@ -17,10 +17,11 @@ namespace AlgoTeacherWPF.Model
                     {
                         if (sortedDataSet[i].Number > sortedDataSet[i + 1].Number)
                         {
-                            (sortedDataSet[i].Number, sortedDataSet[i + 1].Number) =
-                                (sortedDataSet[i + 1].Number, sortedDataSet[i].Number);
+                            //(sortedDataSet[i].Number, sortedDataSet[i + 1].Number) =
+                            //    (sortedDataSet[i + 1].Number, sortedDataSet[i].Number);
 
-                            Thread.Sleep(2000);
+                            Swap(sortedDataSet, i, i + 1);
+
                         }
                     }
                 }
@@ -29,8 +30,17 @@ namespace AlgoTeacherWPF.Model
 
         private static void Swap(ObservableCollection<NumberModel> sortedDataSet, int left, int right)
         {
+            sortedDataSet[left].BackgroundColor = "#ADD8E6";
+            sortedDataSet[right].BackgroundColor = "#ADD8E6";
+            sortedDataSet[left].IsRightArrowVisible = true;
+
+            Thread.Sleep(2000);
             (sortedDataSet[left].Number, sortedDataSet[right].Number) =
                 (sortedDataSet[right].Number, sortedDataSet[left].Number);
+
+            sortedDataSet[left].IsRightArrowVisible = false;
+            sortedDataSet[left].BackgroundColor = "Transparent";
+            sortedDataSet[right].BackgroundColor = "Transparent";
         }
     }
 }

@@ -12,6 +12,7 @@
 
     <Window.Resources>
         <converters:BoolToStringYesNoConverter x:Key="BoolToStringYesNoConverter" />
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </Window.Resources>
 
     <Grid>
@@ -259,9 +260,17 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
 
-                            <Border Style="{StaticResource ArrayElementBorderSorted}">
-                                <Label Content="{Binding Number}" Style="{StaticResource ArrayCellSmaller}"/>
-                            </Border>
+                            <WrapPanel Orientation="Vertical">
+                                <Border Style="{StaticResource ArrayElementBorderSorted}">
+                                    <Label Content="{Binding Number}" Style="{StaticResource ArrayCellSmaller}"
+                                           Background="{Binding BackgroundColor}"/>
+                                </Border>
+                                <!-- right arrow -->
+                                <TextBlock Text="&#x2794;" 
+                                           Visibility="{Binding IsRightArrowVisible, 
+                                            Converter={StaticResource BoolToVisibilityConverter}}" 
+                                           HorizontalAlignment="Center" />
+                            </WrapPanel>
 
                         </DataTemplate>
                     </ListView.ItemTemplate>
