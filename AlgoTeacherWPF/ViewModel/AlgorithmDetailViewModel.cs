@@ -2,7 +2,6 @@
 using AlgoTeacherWPF.Model.Enums;
 using AlgoTeacherWPF.Utilities;
 using AlgoTeacherWPF.ViewModel.Commands;
-using System;
 using System.Collections.ObjectModel;
 
 namespace AlgoTeacherWPF.ViewModel
@@ -312,7 +311,7 @@ namespace AlgoTeacherWPF.ViewModel
             SortedDataSet.Clear();
             foreach (var item in UnsortedDataSet)
             {
-                SortedDataSet.Add(item);
+                SortedDataSet.Add(new NumberModel { Number = item.Number });
             }
 
             OnPropertyChanged(nameof(SortedDataSet));
@@ -419,17 +418,16 @@ namespace AlgoTeacherWPF.ViewModel
 
         #endregion helpers
 
-        public void Sort()
+        public async void Sort()
         {
-            ShowSuccessMessageBox($"Sort: {Algorithm.Name}" +
-                                  $"{Environment.NewLine}Size: => {DataSetSize}" +
-                                  $"{Environment.NewLine}CanRepeat: => {CanRepeatYes}" +
-                                  $"{Environment.NewLine}Case: => {ComplexityCase}" +
-                                  $"{Environment.NewLine}Speed: => {SortSpeed}");
+            //ShowSuccessMessageBox($"Sort: {Algorithm.Name}" +
+            //                      $"{Environment.NewLine}Size: => {DataSetSize}" +
+            //                      $"{Environment.NewLine}CanRepeat: => {CanRepeatYes}" +
+            //                      $"{Environment.NewLine}Case: => {ComplexityCase}" +
+            //                      $"{Environment.NewLine}Speed: => {SortSpeed}");
 
-            Sorter.BubbleSort(_sortedDataSet, SortSpeed);
-
-            //PerformBubbleSort();
+            await Sorter.BubbleSort(_sortedDataSet, SortSpeed);
+            ShowSuccessMessageBox($"{Algorithm.Name} Completed");
         }
 
 
@@ -443,27 +441,5 @@ namespace AlgoTeacherWPF.ViewModel
             SetComplexityCase(DefaultComplexityCase);
             GenerateRandomDataSet();
         }
-
-        // below works - This was moved to Sorter static class - modularity, reusability, separation of concerns
-        //private void PerformBubbleSort()
-        //{
-        //    Task.Run(() =>
-        //    {
-        //        for (var round = 0; round < SortedDataSet.Count - 1; round++)
-        //        {
-        //            for (var i = 0; i < SortedDataSet.Count - round - 1; i++)
-        //            {
-        //                if (SortedDataSet[i].Number > SortedDataSet[i + 1].Number)
-        //                {
-        //                    (SortedDataSet[i].Number, SortedDataSet[i + 1].Number) =
-        //                        (SortedDataSet[i + 1].Number, SortedDataSet[i].Number);
-        //                    OnPropertyChanged(nameof(SortedDataSet));
-        //                    Thread.Sleep(2000);
-        //                }
-        //            }
-        //        }
-        //    });
-        //}
-
     }
 }

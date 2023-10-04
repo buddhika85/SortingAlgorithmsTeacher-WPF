@@ -7,9 +7,9 @@ namespace AlgoTeacherWPF.Model
 {
     public static class Sorter
     {
-        public static void BubbleSort(ObservableCollection<NumberModel> sortedDataSet, SortSpeed speed)
+        public static async Task BubbleSort(ObservableCollection<NumberModel> sortedDataSet, SortSpeed speed)
         {
-            Task.Run(() =>
+            await Task.Run(() =>
             {
                 for (var round = 0; round < sortedDataSet.Count - 1; round++)
                 {
