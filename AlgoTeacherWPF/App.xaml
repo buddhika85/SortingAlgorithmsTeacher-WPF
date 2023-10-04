@@ -69,6 +69,31 @@
             <Setter Property="Background" Value="LimeGreen" />
         </Style>
 
+        <Style TargetType="Label" x:Key="ComparisonsLbl">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="Orange" />
+        </Style>
+
+        <Style TargetType="Label" x:Key="SwapsLbl">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="Orchid" />
+        </Style>
+
+        <Style TargetType="Label" x:Key="OperationsLbl">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="Tomato" />
+        </Style>
+
+
         <Style TargetType="TextBlock" x:Key="CellTextBlock">
             <Setter Property="Width" Value="100" />
             <Setter Property="Height" Value="100" />
@@ -260,6 +285,14 @@
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Background" Value="Transparent"></Setter>
         </Style>
+
+        <Style TargetType="WrapPanel" x:Key="AnalysisSection">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            
+        </Style>
+
+
 
     </Application.Resources>
 </Application>

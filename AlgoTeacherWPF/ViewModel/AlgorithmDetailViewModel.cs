@@ -12,7 +12,7 @@ namespace AlgoTeacherWPF.ViewModel
         private const int Min = -5;
         private const int Max = 100;
         private const bool DefaultCanRepeat = false;
-        private const SortSpeed DefaultSortSpeed = SortSpeed.ThreeX;
+        private const SortSpeed DefaultSortSpeed = SortSpeed.FiveX;
         private const ComplexityCase DefaultComplexityCase = ComplexityCase.AverageCase;
 
         internal readonly int MinDataSetSize = 2;      // made these internal to access from command class
@@ -191,7 +191,7 @@ namespace AlgoTeacherWPF.ViewModel
             }
         }
 
-        private bool _isThreeX = true;      // default this is selected
+        private bool _isThreeX;      // default this is selected
 
         public bool IsThreeX
         {
@@ -230,6 +230,22 @@ namespace AlgoTeacherWPF.ViewModel
         #endregion speedRadioButtons
 
 
+        #region operationsCounts
+
+        private SortResultModel _sortResultModel = new() { Comparisons = 0, Swaps = 0 };
+
+        public SortResultModel SortResultModel
+        {
+            get => _sortResultModel;
+            set
+            {
+                _sortResultModel = value;
+                OnPropertyChanged(nameof(SortResultModel));
+            }
+        }
+
+        #endregion operationsCounts
+
         #region constructors
 
         // This constructor is used for testing and UI design purposes
@@ -250,9 +266,11 @@ namespace AlgoTeacherWPF.ViewModel
                 Presentation = new Presentation { BackgroundColor = "Red" }
             };
 
+            SetupSortResults();
             SelectCaseRadioButton();
             GenerateRandomDataSet();
             SetCanRepeat(DefaultCanRepeat);
+            SetSpeedRadioButtonSelection();
 
             SetupCommands();
         }
@@ -261,9 +279,11 @@ namespace AlgoTeacherWPF.ViewModel
         public AlgorithmDetailViewModel(Algorithm algorithm)
         {
             Algorithm = algorithm;
+            SetupSortResults();
             SelectCaseRadioButton();
             GenerateRandomDataSet();
             SetCanRepeat(DefaultCanRepeat);
+            SetSpeedRadioButtonSelection();
 
             SetupCommands();
         }
@@ -417,6 +437,11 @@ namespace AlgoTeacherWPF.ViewModel
             }
         }
 
+        private void SetupSortResults()
+        {
+            SortResultModel = new() { AlgorithmName = "Bubble Sort" };
+        }
+
         #endregion helpers
 
         public async void Sort()
@@ -427,7 +452,7 @@ namespace AlgoTeacherWPF.ViewModel
             //                      $"{Environment.NewLine}Case: => {ComplexityCase}" +
             //                      $"{Environment.NewLine}Speed: => {SortSpeed}");
 
-            await Sorter.BubbleSort(_sortedDataSet, SortSpeed);
+            await new Sorter().BubbleSort(_sortedDataSet, SortSpeed, SortResultModel);
             ShowSuccessMessageBox($"{Algorithm.Name} Completed");
         }
 
@@ -436,6 +461,7 @@ namespace AlgoTeacherWPF.ViewModel
         public void Reset()
         {
             ShowInfoMessageBox("Reset");
+            SetupSortResults();
             DataSetSize = InitialDatSetSize;
             SetCanRepeat(DefaultCanRepeat);
             SetSortSpeed(DefaultSortSpeed);

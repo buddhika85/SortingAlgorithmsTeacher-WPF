@@ -235,14 +235,16 @@
             </Grid.ColumnDefinitions>
 
             <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
-                <Label  Content="Bar Chart Visualizer" Style="{StaticResource SubHeader}"
-                        />
+                <Label  Content="Bar Chart Visualizer" Style="{StaticResource SubHeader}"/>
             </WrapPanel>
 
             <WrapPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">
                 <Label Content="Array Visualizer" Style="{StaticResource SubHeader}"/>
             </WrapPanel>
 
+            <!-- bar chart visualization -->
+
+            <!-- array visualization -->
             <WrapPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
                 <ListView x:Name="SortedDataSetListView"
                           ItemsSource="{Binding SortedDataSet}"
@@ -280,7 +282,33 @@
             </WrapPanel>
         </Grid>
 
+        <Grid Grid.Row="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="Analysis" Style="{StaticResource SubHeader}"/>
+
+            <WrapPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Style="{StaticResource AnalysisSection}">
+                <Label Grid.Row="1" Content="{Binding SortResultModel.Comparisons}" Style="{StaticResource ComparisonsLbl}"/>
+                <Label Content=" Comparisons" Style="{StaticResource ComparisonsLbl}"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Style="{StaticResource AnalysisSection}">
+                <Label  Content="{Binding SortResultModel.Swaps}" Style="{StaticResource SwapsLbl}"/>
+                <Label Content=" Swaps" Style="{StaticResource SwapsLbl}"/>
+            </WrapPanel>
+            <WrapPanel  Grid.Row="1"  Grid.Column="2" Orientation="Horizontal" Style="{StaticResource AnalysisSection}">
+                <Label Content="{Binding SortResultModel.TotalOperations}" Style="{StaticResource OperationsLbl}"/>
+                <Label Content=" TotalOperations" Style="{StaticResource OperationsLbl}"/>
+            </WrapPanel>
             
+        </Grid>
        
     </Grid>
 </Window>

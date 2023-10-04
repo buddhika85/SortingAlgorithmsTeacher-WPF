@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace AlgoTeacherWPF.Model
 {
-    public static class Sorter
+    public class Sorter
     {
-        public static async Task BubbleSort(ObservableCollection<NumberModel> sortedDataSet, SortSpeed speed)
+        public async Task BubbleSort(ObservableCollection<NumberModel> sortedDataSet, SortSpeed speed, SortResultModel sortResultModel)
         {
             await Task.Run(() =>
             {
@@ -15,19 +15,23 @@ namespace AlgoTeacherWPF.Model
                 {
                     for (var i = 0; i < sortedDataSet.Count - round - 1; i++)
                     {
+                        ++sortResultModel.Comparisons;
+                        ++sortResultModel.TotalOperations;
+
                         if (sortedDataSet[i].Number > sortedDataSet[i + 1].Number)
                         {
-
                             Swap(sortedDataSet, i, i + 1, GetSwapInterval(speed));
-
+                            ++sortResultModel.Swaps;
+                            ++sortResultModel.TotalOperations;
                         }
                     }
                 }
             });
         }
 
-        private static void Swap(ObservableCollection<NumberModel> sortedDataSet, int left, int right, int swapInterval)
+        private void Swap(ObservableCollection<NumberModel> sortedDataSet, int left, int right, int swapInterval)
         {
+
             sortedDataSet[left].BackgroundColor = "#ADD8E6";                    // color what is about to be swapped
             sortedDataSet[right].BackgroundColor = "#ADD8E6";                   // color what is about to be swapped
             sortedDataSet[left].IsRightArrowVisible = true;                     // show arrow
