@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Main Window - Sorting Algorithms" Height="300" Width="620"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         xmlns:viewModels="clr-namespace:AlgoTeacherWPF.ViewModel">  <!-- namespace for view models-->
 
     <Window.Resources>

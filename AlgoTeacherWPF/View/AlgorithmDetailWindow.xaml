@@ -7,6 +7,7 @@
         xmlns:converters="clr-namespace:AlgoTeacherWPF.Converters"
         mc:Ignorable="d"
         Title="Algorithm Details" Height="1000" Width="1000"
+        WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
 
     <Window.Resources>
