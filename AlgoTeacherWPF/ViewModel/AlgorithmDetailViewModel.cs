@@ -386,6 +386,7 @@ namespace AlgoTeacherWPF.ViewModel
                 ReArrangeDataSetToRepeats();
             PopulateSortedDataSet();
             SetupSortVisualizationChartViewModel();
+            ClearLogMessages();
         }
 
         private void ReArrangeDataSet()
@@ -393,6 +394,7 @@ namespace AlgoTeacherWPF.ViewModel
             Util.ReArrangeDataSet(ComplexityCase, ref _unsortedDataSet);
             PopulateSortedDataSet();
             SetupSortVisualizationChartViewModel();
+            ClearLogMessages();
         }
 
         private void ReArrangeDataSetToRepeats()
@@ -471,6 +473,11 @@ namespace AlgoTeacherWPF.ViewModel
             SortResultModel = new() { AlgorithmName = Algorithm.Name };
         }
 
+        private void ClearLogMessages()
+        {
+            SortResultModel.ClearLogMessages();
+        }
+
         public void SetupSortVisualizationChartViewModel()
         {
             Task.Run(() =>
@@ -499,7 +506,7 @@ namespace AlgoTeacherWPF.ViewModel
         public void Reset()
         {
             ShowInfoMessageBox("Reset");
-            SetupSortResults();
+            ClearLogMessages();
             DataSetSize = InitialDatSetSize;
             SetCanRepeat(DefaultCanRepeat);
             SetSortSpeed(DefaultSortSpeed);

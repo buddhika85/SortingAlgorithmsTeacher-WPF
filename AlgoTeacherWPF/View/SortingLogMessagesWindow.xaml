@@ -51,19 +51,21 @@
             </ListView>
         </WrapPanel>
 
-        <Border Grid.Row="2" BorderBrush="Black" Background="White" BorderThickness="2" Height="520" Width="520" VerticalAlignment="Top">
+        <Border Grid.Row="2" BorderBrush="#33363D" Background="Transparent" 
+                BorderThickness="0" Height="540" Width="Auto" VerticalAlignment="Top">
+            
             <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" Name="sv1">
                 <ListView x:Name="SortingLogMessagesListView"
                           ItemsSource="{Binding SortResultModel.SortingLogMessages}"
-                 
                           BorderBrush="Transparent">
 
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" >
-
-                                <TextBlock Text= "{Binding Message}" FontWeight="Bold" />
+                                <Label Content="{Binding Id}" />
+                                <Label Content=". " />
+                                <Label Content= "{Binding Message}" />
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -71,6 +73,7 @@
 
                 </ListView>
             </ScrollViewer>
+
         </Border>
 
     </Grid>

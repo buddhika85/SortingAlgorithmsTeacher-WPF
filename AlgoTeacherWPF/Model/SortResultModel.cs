@@ -77,6 +77,7 @@ namespace AlgoTeacherWPF.Model
         public void ClearLogMessages()
         {
             SortingLogMessages.Clear();
+            LastLogMessageId = 0;
         }
     }
 }
