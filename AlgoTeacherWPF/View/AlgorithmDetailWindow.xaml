@@ -253,7 +253,7 @@
                 DataContext="{Binding SortVisualizationChartViewModel}">
             </userControls:SortVisualizationChartUserControl>
             <!-- array visualization -->
-            <WrapPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+            <WrapPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Orientation="Vertical">
                 <ListView x:Name="SortedDataSetListView"
                           ItemsSource="{Binding SortedDataSet}"
                           BorderBrush="Transparent">
@@ -287,7 +287,12 @@
                     </ListView.ItemTemplate>
 
                 </ListView>
+
+                <Button Content=" View Sorting Log Messages " Style="{StaticResource LogWindowOpenBtn}"
+                        Command="{Binding LogWindowOpenCommand}"/>
             </WrapPanel>
+
+            
         </Grid>
 
         <Grid Grid.Row="8">

@@ -1,0 +1,84 @@
+﻿<Window x:Class="AlgoTeacherWPF.View.SortingLogMessagesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AlgoTeacherWPF.View"
+        mc:Ignorable="d"
+        Title="Sorting Log Messages" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Style="{StaticResource DarkWindow}">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" HorizontalAlignment="Center">
+            <Label Content="{Binding Algorithm.Name}" Style="{StaticResource SubHeader}" />
+            <Label Content=" - Sorting Log Messages" Style="{StaticResource SubHeader}" />
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center">
+            <ListView x:Name="OriginalDataSetListView"
+                      ItemsSource="{Binding UnsortedDataSet}"
+                      BorderBrush="Transparent">
+
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"                                   
+                                   Margin="10"
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center"/>
+
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Border Style="{StaticResource ArrayElementBorder}">
+                            <Label Content="{Binding Number}" 
+                                   Style="{StaticResource ArrayCell}"/>
+                        </Border>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
+            <ListView x:Name="SortingLogMessagesListView"
+                      ItemsSource="{Binding SortResultModel.SortingLogMessages}"
+                      BorderBrush="Transparent">
+
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"                                   
+                                   Margin="10"
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center"/>
+
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Border >
+                            <Label Content="{Binding Message}" 
+                                   />
+                        </Border>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+       
+        </WrapPanel>
+    </Grid>
+</Window>

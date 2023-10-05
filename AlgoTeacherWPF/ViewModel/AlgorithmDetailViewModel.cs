@@ -1,6 +1,7 @@
 ﻿using AlgoTeacherWPF.Model;
 using AlgoTeacherWPF.Model.Enums;
 using AlgoTeacherWPF.Utilities;
+using AlgoTeacherWPF.View;
 using AlgoTeacherWPF.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace AlgoTeacherWPF.ViewModel
         public SortCommand SortCommand { get; set; } = null!;
         public ResetCommand ResetCommand { get; set; } = null!;
         public SelectSortSpeedCommand SelectSortSpeedCommand { get; set; } = null!;
+        public LogWindowOpenCommand LogWindowOpenCommand { get; set; } = null!;
         #endregion commands
 
 
@@ -374,6 +376,7 @@ namespace AlgoTeacherWPF.ViewModel
             SortCommand = new SortCommand(this);
             ResetCommand = new ResetCommand(this);
             SelectSortSpeedCommand = new SelectSortSpeedCommand(this);
+            LogWindowOpenCommand = new LogWindowOpenCommand(this);
         }
 
         private void GenerateRandomDataSet()
@@ -502,6 +505,11 @@ namespace AlgoTeacherWPF.ViewModel
             SetSortSpeed(DefaultSortSpeed);
             SetComplexityCase(DefaultComplexityCase);
             GenerateRandomDataSet();
+        }
+
+        public void OpenLogMessagesWindow()
+        {
+            new SortingLogMessagesWindow(this).Show();
         }
     }
 }

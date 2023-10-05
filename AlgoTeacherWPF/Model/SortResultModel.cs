@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace AlgoTeacherWPF.Model
 {
@@ -65,8 +67,11 @@ namespace AlgoTeacherWPF.Model
 
         public void AddLogMessage(SortingLogMessage sortingLogMessage)
         {
-            SortingLogMessages.Add(sortingLogMessage);
-            OnPropertyChanged(nameof(SortingLogMessages));
+            Application.Current.Dispatcher.Invoke((Action)delegate
+            {
+                SortingLogMessages.Add(sortingLogMessage);
+                OnPropertyChanged(nameof(SortingLogMessages));
+            });
         }
 
         public void ClearLogMessages()
