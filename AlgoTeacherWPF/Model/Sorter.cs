@@ -23,17 +23,42 @@ namespace AlgoTeacherWPF.Model
                 {
                     for (var i = 0; i < algorithmDetailViewModel.SortedDataSet.Count - round - 1; i++)
                     {
+                        AddComparisonLogMessage(algorithmDetailViewModel, i);
                         ++algorithmDetailViewModel.SortResultModel.Comparisons;
                         ++algorithmDetailViewModel.SortResultModel.TotalOperations;
 
                         if (algorithmDetailViewModel.SortedDataSet[i].Number > algorithmDetailViewModel.SortedDataSet[i + 1].Number)
                         {
+                            AddSwapLogMessage(algorithmDetailViewModel, i);
                             Swap(algorithmDetailViewModel, i, i + 1, swapInterval);
                             ++algorithmDetailViewModel.SortResultModel.Swaps;
                             ++algorithmDetailViewModel.SortResultModel.TotalOperations;
                         }
                     }
                 }
+            });
+        }
+
+        private void AddSwapLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel, int left)
+        {
+            algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
+            {
+                IsSwap = true,
+                Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
+                Message =
+                    $"Swapping {algorithmDetailViewModel.SortedDataSet[left].Number} and {algorithmDetailViewModel.SortedDataSet[left + 1]}," +
+                    $"Because  {algorithmDetailViewModel.SortedDataSet[left].Number} > {algorithmDetailViewModel.SortedDataSet[left + 1]}"
+            });
+        }
+
+        private static void AddComparisonLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel, int index)
+        {
+            algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
+            {
+                IsComparison = true,
+                Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
+                Message =
+                    $"Comparing {algorithmDetailViewModel.SortedDataSet[index].Number} and {algorithmDetailViewModel.SortedDataSet[index + 1]}"
             });
         }
 

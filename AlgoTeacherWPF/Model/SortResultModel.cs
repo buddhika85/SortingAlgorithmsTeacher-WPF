@@ -1,4 +1,6 @@
-﻿namespace AlgoTeacherWPF.Model
+﻿using System.Collections.ObjectModel;
+
+namespace AlgoTeacherWPF.Model
 {
     public class SortResultModel : ObservableModel
     {
@@ -36,6 +38,40 @@
                 _totalOperations = value;
                 OnPropertyChanged(nameof(TotalOperations));
             }
+        }
+
+        private int _lastLogMessageId = 0;
+        public int LastLogMessageId
+        {
+            get => _lastLogMessageId;
+            set
+            {
+                _lastLogMessageId = value;
+                OnPropertyChanged(nameof(_lastLogMessageId));
+            }
+        }
+
+        private ObservableCollection<SortingLogMessage> _sortingLogMessages = new();
+
+        public ObservableCollection<SortingLogMessage> SortingLogMessages
+        {
+            get => _sortingLogMessages;
+            set
+            {
+                _sortingLogMessages = value;
+                OnPropertyChanged(nameof(SortingLogMessages));
+            }
+        }
+
+        public void AddLogMessage(SortingLogMessage sortingLogMessage)
+        {
+            SortingLogMessages.Add(sortingLogMessage);
+            OnPropertyChanged(nameof(SortingLogMessages));
+        }
+
+        public void ClearLogMessages()
+        {
+            SortingLogMessages.Clear();
         }
     }
 }
