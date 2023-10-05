@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AlgoTeacherWPF.View"
         mc:Ignorable="d"
-        Title="Sorting Log Messages" Height="450" Width="800"
+        Title="Sorting Log Messages" Height="Auto" Width="600"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"
+       
         Style="{StaticResource DarkWindow}">
     <Grid>
 
@@ -51,34 +51,27 @@
             </ListView>
         </WrapPanel>
 
-        <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
-            <ListView x:Name="SortingLogMessagesListView"
-                      ItemsSource="{Binding SortResultModel.SortingLogMessages}"
-                      BorderBrush="Transparent">
+        <Border Grid.Row="2" BorderBrush="Black" Background="White" BorderThickness="2" Height="520" Width="520" VerticalAlignment="Top">
+            <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" Name="sv1">
+                <ListView x:Name="SortingLogMessagesListView"
+                          ItemsSource="{Binding SortResultModel.SortingLogMessages}"
+                 
+                          BorderBrush="Transparent">
 
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Vertical"                                   
-                                   Margin="10"
-                                   HorizontalAlignment="Center" 
-                                   VerticalAlignment="Center"/>
 
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" >
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
+                                <TextBlock Text= "{Binding Message}" FontWeight="Bold" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
 
-                        <Border >
-                            <Label Content="{Binding Message}" 
-                                   />
-                        </Border>
 
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </Border>
 
-            </ListView>
-       
-        </WrapPanel>
     </Grid>
 </Window>

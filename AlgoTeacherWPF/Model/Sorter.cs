@@ -46,8 +46,8 @@ namespace AlgoTeacherWPF.Model
                 IsSwap = true,
                 Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
                 Message =
-                    $"Swapping {algorithmDetailViewModel.SortedDataSet[left].Number} and {algorithmDetailViewModel.SortedDataSet[left + 1]}," +
-                    $"Because  {algorithmDetailViewModel.SortedDataSet[left].Number} > {algorithmDetailViewModel.SortedDataSet[left + 1]}"
+                    $"Swapping {algorithmDetailViewModel.SortedDataSet[left].Number} and {algorithmDetailViewModel.SortedDataSet[left + 1].Number}," +
+                    $"Because  {algorithmDetailViewModel.SortedDataSet[left].Number} > {algorithmDetailViewModel.SortedDataSet[left + 1].Number}"
             });
         }
 
@@ -58,7 +58,7 @@ namespace AlgoTeacherWPF.Model
                 IsComparison = true,
                 Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
                 Message =
-                    $"Comparing {algorithmDetailViewModel.SortedDataSet[index].Number} and {algorithmDetailViewModel.SortedDataSet[index + 1]}"
+                    $"Comparing {algorithmDetailViewModel.SortedDataSet[index].Number} and {algorithmDetailViewModel.SortedDataSet[index + 1].Number}"
             });
         }
 
