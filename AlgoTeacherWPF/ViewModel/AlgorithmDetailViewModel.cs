@@ -9,7 +9,7 @@ namespace AlgoTeacherWPF.ViewModel
 {
     public class AlgorithmDetailViewModel : BaseViewModel
     {
-        private const int InitialDatSetSize = 5;
+        private const int InitialDatSetSize = 10;
         private const int Min = -5;
         private const int Max = 100;
         private const bool DefaultCanRepeat = false;
@@ -465,7 +465,7 @@ namespace AlgoTeacherWPF.ViewModel
 
         private void SetupSortResults()
         {
-            SortResultModel = new() { AlgorithmName = "Bubble Sort" };
+            SortResultModel = new() { AlgorithmName = Algorithm.Name };
         }
 
         public void SetupSortVisualizationChartViewModel()

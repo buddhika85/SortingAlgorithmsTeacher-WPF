@@ -93,6 +93,22 @@
             <Setter Property="Foreground" Value="Tomato" />
         </Style>
 
+        <Style TargetType="Label" x:Key="ComplexityCaseLbl">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="DodgerBlue" />
+        </Style>
+
+        <Style TargetType="Label" x:Key="DataSetSizeLbl">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="Silver" />
+        </Style>
+
 
         <Style TargetType="TextBlock" x:Key="CellTextBlock">
             <Setter Property="Width" Value="100" />

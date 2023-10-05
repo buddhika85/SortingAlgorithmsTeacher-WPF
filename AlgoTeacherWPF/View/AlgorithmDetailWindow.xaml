@@ -293,27 +293,41 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="Analysis" Style="{StaticResource SubHeader}"/>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Content="Analysis" Style="{StaticResource SubHeader}"/>
 
-            <WrapPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Style="{StaticResource AnalysisSection}">
+            <WrapPanel  Grid.Row="1" Grid.Column="0" Style="{StaticResource AnalysisSection}">
+                <Label Content="{Binding ComplexityCase}" Style="{StaticResource ComplexityCaseLbl}"/>
+                <Label Content=" Case" Style="{StaticResource ComplexityCaseLbl}"/>
+            </WrapPanel>
+
+            <WrapPanel  Grid.Row="1" Grid.Column="1" Style="{StaticResource AnalysisSection}">
+                <Label Content="{Binding DataSetSize}" Style="{StaticResource DataSetSizeLbl}"/>
+                <Label Content=" Item Data Set" Style="{StaticResource DataSetSizeLbl}"/>
+            </WrapPanel>
+
+            <WrapPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" Style="{StaticResource AnalysisSection}">
                 <Label Grid.Row="1" Content="{Binding SortResultModel.Comparisons}" Style="{StaticResource ComparisonsLbl}"/>
                 <Label Content=" Comparisons" Style="{StaticResource ComparisonsLbl}"/>
             </WrapPanel>
-            <WrapPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Style="{StaticResource AnalysisSection}">
+            <WrapPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" Style="{StaticResource AnalysisSection}">
                 <Label  Content="{Binding SortResultModel.Swaps}" Style="{StaticResource SwapsLbl}"/>
                 <Label Content=" Swaps" Style="{StaticResource SwapsLbl}"/>
             </WrapPanel>
-            <WrapPanel  Grid.Row="1"  Grid.Column="2" Orientation="Horizontal" Style="{StaticResource AnalysisSection}">
+            <WrapPanel  Grid.Row="1"  Grid.Column="4" Orientation="Horizontal" Style="{StaticResource AnalysisSection}">
                 <Label Content="{Binding SortResultModel.TotalOperations}" Style="{StaticResource OperationsLbl}"/>
                 <Label Content=" TotalOperations" Style="{StaticResource OperationsLbl}"/>
             </WrapPanel>
+
             
         </Grid>
        

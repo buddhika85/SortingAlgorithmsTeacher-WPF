@@ -16,6 +16,8 @@ namespace AlgoTeacherWPF.Model
         {
             await Task.Run(() =>
             {
+                ResetSortResult(algorithmDetailViewModel);
+
                 var swapInterval = GetSwapInterval(algorithmDetailViewModel.SortSpeed);
                 for (var round = 0; round < algorithmDetailViewModel.SortedDataSet.Count - 1; round++)
                 {
@@ -33,6 +35,13 @@ namespace AlgoTeacherWPF.Model
                     }
                 }
             });
+        }
+
+        private static void ResetSortResult(AlgorithmDetailViewModel algorithmDetailViewModel)
+        {
+            algorithmDetailViewModel.SortResultModel.Comparisons = 0;
+            algorithmDetailViewModel.SortResultModel.Swaps = 0;
+            algorithmDetailViewModel.SortResultModel.TotalOperations = 0;
         }
 
         private void Swap(AlgorithmDetailViewModel algorithmDetailViewModel, int left, int right, int swapInterval)
