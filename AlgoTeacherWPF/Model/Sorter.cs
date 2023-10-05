@@ -18,6 +18,8 @@ namespace AlgoTeacherWPF.Model
             await Task.Run(() =>
             {
                 ResetSortResult(algorithmDetailViewModel);
+                AddSortStartEndMessage(algorithmDetailViewModel, true);
+                AddCurrentDataSetLogMessage(algorithmDetailViewModel);
 
                 var swapInterval = GetSwapInterval(algorithmDetailViewModel.SortSpeed);
                 for (var round = 0; round < algorithmDetailViewModel.SortedDataSet.Count - 1; round++)
@@ -43,6 +45,23 @@ namespace AlgoTeacherWPF.Model
                         }
                     }
                 }
+
+                AddSortStartEndMessage(algorithmDetailViewModel, false);
+            });
+        }
+
+        private void AddSortStartEndMessage(AlgorithmDetailViewModel algorithmDetailViewModel, bool isStart)
+        {
+            algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
+            {
+                IsSwap = false,
+                IsComparison = false,
+                SortLogMessageType = isStart ? SortLogMessageType.SortStartMessage : SortLogMessageType.SortCompleteMessage,
+                Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
+                Message = isStart ?
+                    $"{algorithmDetailViewModel.Algorithm.Name} Starts." :
+                    $"{algorithmDetailViewModel.Algorithm.Name} Completed"
+
             });
         }
 
@@ -52,9 +71,10 @@ namespace AlgoTeacherWPF.Model
             {
                 IsSwap = false,
                 IsComparison = false,
+                SortLogMessageType = SortLogMessageType.NormalMessage,
                 Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
                 Message =
-                    $"Now Data set looks like - {string.Join(',', algorithmDetailViewModel.SortedDataSet.Select(x => x.Number))}"
+                    $"Now Data set looks like - {string.Join(", ", algorithmDetailViewModel.SortedDataSet.Select(x => x.Number))}"
             });
         }
 
@@ -64,6 +84,7 @@ namespace AlgoTeacherWPF.Model
             {
                 IsSwap = false,
                 IsComparison = false,
+                SortLogMessageType = SortLogMessageType.NonSwapMessage,
                 Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
                 Message =
                     $"No swap. Because  {algorithmDetailViewModel.SortedDataSet[left].Number} <= {algorithmDetailViewModel.SortedDataSet[left + 1].Number}"
@@ -76,6 +97,7 @@ namespace AlgoTeacherWPF.Model
             {
                 IsSwap = true,
                 IsComparison = false,
+                SortLogMessageType = SortLogMessageType.SwapMessage,
                 Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
                 Message =
                     $"Swapping {algorithmDetailViewModel.SortedDataSet[left].Number} and {algorithmDetailViewModel.SortedDataSet[left + 1].Number}," +
@@ -89,6 +111,7 @@ namespace AlgoTeacherWPF.Model
             {
                 IsComparison = true,
                 IsSwap = false,
+                SortLogMessageType = SortLogMessageType.ComparisonMessage,
                 Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
                 Message =
                     $"Comparing {algorithmDetailViewModel.SortedDataSet[index].Number} and {algorithmDetailViewModel.SortedDataSet[index + 1].Number}"

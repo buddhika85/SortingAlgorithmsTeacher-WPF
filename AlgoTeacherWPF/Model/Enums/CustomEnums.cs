@@ -26,3 +26,13 @@ public enum SortSpeed
     FourX,
     FiveX
 }
+
+public enum SortLogMessageType
+{
+    NormalMessage,
+    ComparisonMessage,
+    SwapMessage,
+    NonSwapMessage,
+    SortStartMessage,
+    SortCompleteMessage
+}

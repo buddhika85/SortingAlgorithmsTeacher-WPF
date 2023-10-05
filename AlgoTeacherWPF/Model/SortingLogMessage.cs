@@ -1,4 +1,6 @@
-﻿namespace AlgoTeacherWPF.Model
+﻿using AlgoTeacherWPF.Model.Enums;
+
+namespace AlgoTeacherWPF.Model
 {
     public class SortingLogMessage : ObservableModel
     {
@@ -56,5 +58,18 @@
                 OnPropertyChanged(nameof(IsSwap));
             }
         }
+
+        private SortLogMessageType _sortLogMessageType;
+
+        public SortLogMessageType SortLogMessageType
+        {
+            get => _sortLogMessageType;
+            set
+            {
+                _sortLogMessageType = value;
+                OnPropertyChanged(nameof(SortLogMessageType));
+            }
+        }
+
     }
 }
