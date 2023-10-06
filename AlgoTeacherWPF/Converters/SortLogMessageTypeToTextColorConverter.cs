@@ -9,8 +9,7 @@ namespace AlgoTeacherWPF.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            //if (value is SortLogMessageType)
-            return "black";
+            return (value is SortLogMessageType type ? type : SortLogMessageType.NormalMessage).GetTextColor();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

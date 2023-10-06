@@ -4,12 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AlgoTeacherWPF.View"
+
+        xmlns:converters="clr-namespace:AlgoTeacherWPF.Converters"
+
         mc:Ignorable="d"
         Title="Sorting Log Messages" Height="Auto" Width="600"
         WindowStartupLocation="CenterScreen"
        
         Style="{StaticResource DarkWindow}">
+
+    <Window.Resources>
+        <converters:SortLogMessageTypeToTextColorConverter x:Key="SortLogMessageTypeToTextColorConverter" />
+    </Window.Resources>
+
     <Grid>
+        
+
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -65,7 +75,8 @@
                             <StackPanel Orientation="Horizontal" >
                                 <Label Content="{Binding Id}" />
                                 <Label Content=". " />
-                                <Label Content= "{Binding Message}" />
+                                <Label Content= "{Binding Message}" 
+                                       Foreground="{Binding SortLogMessageType, Converter={StaticResource SortLogMessageTypeToTextColorConverter}}" />
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
