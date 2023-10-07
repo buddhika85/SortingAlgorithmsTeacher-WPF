@@ -50,6 +50,13 @@ namespace AlgoTeacherWPF.Model
             });
         }
 
+        public async Task SelectionSort(AlgorithmDetailViewModel algorithmDetailViewModel)
+        {
+            // To Do
+        }
+
+        #region helpers
+
         private void AddSortStartEndMessage(AlgorithmDetailViewModel algorithmDetailViewModel, bool isStart)
         {
             algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
@@ -158,5 +165,8 @@ namespace AlgoTeacherWPF.Model
                 _ => SwapIntervalThreeX
             };
         }
+
+        #endregion helpers
+
     }
 }
