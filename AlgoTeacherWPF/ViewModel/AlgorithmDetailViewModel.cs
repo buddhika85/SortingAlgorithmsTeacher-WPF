@@ -504,6 +504,9 @@ namespace AlgoTeacherWPF.ViewModel
                 case "Bubble Sort":
                     await new BubbleSorter().Sort(this);
                     break;
+                case "Selection Sort":
+                    await new SelectionSorter().Sort(this);
+                    break;
                 default:
                     ShowInfoMessageBox($"{Algorithm.Name} - is still unimplemented");
                     break;
