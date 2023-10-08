@@ -499,7 +499,15 @@ namespace AlgoTeacherWPF.ViewModel
 
             //await new Sorter().BubbleSort(_sortedDataSet, SortSpeed, SortResultModel, this);
             ClearLogMessages();
-            await new BubbleSorter().Sort(this);
+            switch (Algorithm.Name)
+            {
+                case "Bubble Sort":
+                    await new BubbleSorter().Sort(this);
+                    break;
+                default:
+                    ShowInfoMessageBox($"{Algorithm.Name} - is still unimplemented");
+                    break;
+            }
             ShowSuccessMessageBox($"{Algorithm.Name} Completed");
         }
 
