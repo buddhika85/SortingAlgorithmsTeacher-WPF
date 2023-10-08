@@ -1,7 +1,9 @@
 ﻿using AlgoTeacherWPF.Model.Enums;
 using AlgoTeacherWPF.ViewModel;
+using System;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace AlgoTeacherWPF.Model.Sorting
 {
@@ -12,6 +14,18 @@ namespace AlgoTeacherWPF.Model.Sorting
         protected const int SwapIntervalThreeX = 2000;
         protected const int SwapIntervalFourX = 1000;
         protected const int SwapIntervalFiveX = 100;
+
+        protected int SwapInterval = SwapIntervalThreeX;
+
+        public abstract Task Sort(AlgorithmDetailViewModel algorithmDetailViewModel);
+
+        protected virtual void SetupSortData(AlgorithmDetailViewModel algorithmDetailViewModel)
+        {
+            ResetSortResult(algorithmDetailViewModel);
+            AddSortStartEndMessage(algorithmDetailViewModel, true);
+            AddCurrentDataSetLogMessage(algorithmDetailViewModel);
+            SetSwapInterval(algorithmDetailViewModel.SortSpeed);
+        }
 
         protected virtual void AddSortStartEndMessage(AlgorithmDetailViewModel algorithmDetailViewModel, bool isStart)
         {
@@ -108,17 +122,17 @@ namespace AlgoTeacherWPF.Model.Sorting
             algorithmDetailViewModel.SetupSortVisualizationChartViewModel();
         }
 
-        protected virtual int GetSwapInterval(SortSpeed speed)
+        protected virtual void SetSwapInterval(SortSpeed speed)
         {
-
-            return speed switch
+            SwapInterval = speed switch
             {
                 SortSpeed.OneX => SwapIntervalOneX,
                 SortSpeed.TwoX => SwapIntervalTwoX,
+                SortSpeed.ThreeX => SwapIntervalThreeX,
                 SortSpeed.FourX => SwapIntervalFourX,
                 SortSpeed.FiveX => SwapIntervalFiveX,
-                SortSpeed.ThreeX => SwapIntervalThreeX,
-                _ => SwapIntervalThreeX
+                _ => throw new ArgumentOutOfRangeException(nameof(speed), speed,
+                    $"Error - unidentified swap interval {speed}")
             };
         }
     }
