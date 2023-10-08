@@ -2,62 +2,18 @@
 using AlgoTeacherWPF.ViewModel;
 using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 
-namespace AlgoTeacherWPF.Model
+namespace AlgoTeacherWPF.Model.Sorting
 {
-    public class Sorter : ObservableModel
+    public abstract class AbstractSorter : ObservableModel
     {
-        private const int SwapIntervalOneX = 4000;
-        private const int SwapIntervalTwoX = 3000;
-        private const int SwapIntervalThreeX = 2000;
-        private const int SwapIntervalFourX = 1000;
-        private const int SwapIntervalFiveX = 100;
-        public async Task BubbleSort(AlgorithmDetailViewModel algorithmDetailViewModel)
-        {
-            await Task.Run(() =>
-            {
-                ResetSortResult(algorithmDetailViewModel);
-                AddSortStartEndMessage(algorithmDetailViewModel, true);
-                AddCurrentDataSetLogMessage(algorithmDetailViewModel);
+        protected const int SwapIntervalOneX = 4000;
+        protected const int SwapIntervalTwoX = 3000;
+        protected const int SwapIntervalThreeX = 2000;
+        protected const int SwapIntervalFourX = 1000;
+        protected const int SwapIntervalFiveX = 100;
 
-                var swapInterval = GetSwapInterval(algorithmDetailViewModel.SortSpeed);
-                for (var round = 0; round < algorithmDetailViewModel.SortedDataSet.Count - 1; round++)
-                {
-                    for (var i = 0; i < algorithmDetailViewModel.SortedDataSet.Count - round - 1; i++)
-                    {
-                        AddComparisonLogMessage(algorithmDetailViewModel, i);
-                        ++algorithmDetailViewModel.SortResultModel.Comparisons;
-                        ++algorithmDetailViewModel.SortResultModel.TotalOperations;
-
-                        if (algorithmDetailViewModel.SortedDataSet[i].Number > algorithmDetailViewModel.SortedDataSet[i + 1].Number)
-                        {
-                            AddSwapLogMessage(algorithmDetailViewModel, i);
-                            Swap(algorithmDetailViewModel, i, i + 1, swapInterval);
-                            AddCurrentDataSetLogMessage(algorithmDetailViewModel);
-                            ++algorithmDetailViewModel.SortResultModel.Swaps;
-                            ++algorithmDetailViewModel.SortResultModel.TotalOperations;
-                        }
-                        else
-                        {
-                            // no swap 
-                            AddNoSwapLogMessage(algorithmDetailViewModel, i);
-                        }
-                    }
-                }
-
-                AddSortStartEndMessage(algorithmDetailViewModel, false);
-            });
-        }
-
-        public async Task SelectionSort(AlgorithmDetailViewModel algorithmDetailViewModel)
-        {
-            // To Do
-        }
-
-        #region helpers
-
-        private void AddSortStartEndMessage(AlgorithmDetailViewModel algorithmDetailViewModel, bool isStart)
+        protected virtual void AddSortStartEndMessage(AlgorithmDetailViewModel algorithmDetailViewModel, bool isStart)
         {
             algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
             {
@@ -72,7 +28,7 @@ namespace AlgoTeacherWPF.Model
             });
         }
 
-        private void AddCurrentDataSetLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel)
+        protected virtual void AddCurrentDataSetLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel)
         {
             algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
             {
@@ -85,7 +41,7 @@ namespace AlgoTeacherWPF.Model
             });
         }
 
-        private void AddNoSwapLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel, int left)
+        protected virtual void AddNoSwapLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel, int left)
         {
             algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
             {
@@ -98,7 +54,7 @@ namespace AlgoTeacherWPF.Model
             });
         }
 
-        private void AddSwapLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel, int left)
+        protected virtual void AddSwapLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel, int left)
         {
             algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
             {
@@ -112,7 +68,7 @@ namespace AlgoTeacherWPF.Model
             });
         }
 
-        private static void AddComparisonLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel, int index)
+        protected virtual void AddComparisonLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel, int index)
         {
             algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
             {
@@ -125,14 +81,14 @@ namespace AlgoTeacherWPF.Model
             });
         }
 
-        private static void ResetSortResult(AlgorithmDetailViewModel algorithmDetailViewModel)
+        protected virtual void ResetSortResult(AlgorithmDetailViewModel algorithmDetailViewModel)
         {
             algorithmDetailViewModel.SortResultModel.Comparisons = 0;
             algorithmDetailViewModel.SortResultModel.Swaps = 0;
             algorithmDetailViewModel.SortResultModel.TotalOperations = 0;
         }
 
-        private void Swap(AlgorithmDetailViewModel algorithmDetailViewModel, int left, int right, int swapInterval)
+        protected virtual void Swap(AlgorithmDetailViewModel algorithmDetailViewModel, int left, int right, int swapInterval)
         {
 
             algorithmDetailViewModel.SortedDataSet[left].BackgroundColor = "#ADD8E6";                                               // color what is about to be swapped
@@ -152,7 +108,7 @@ namespace AlgoTeacherWPF.Model
             algorithmDetailViewModel.SetupSortVisualizationChartViewModel();
         }
 
-        private static int GetSwapInterval(SortSpeed speed)
+        protected virtual int GetSwapInterval(SortSpeed speed)
         {
 
             return speed switch
@@ -165,8 +121,5 @@ namespace AlgoTeacherWPF.Model
                 _ => SwapIntervalThreeX
             };
         }
-
-        #endregion helpers
-
     }
 }

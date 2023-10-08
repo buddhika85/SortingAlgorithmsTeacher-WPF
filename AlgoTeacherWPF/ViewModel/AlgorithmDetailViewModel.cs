@@ -1,5 +1,6 @@
 ﻿using AlgoTeacherWPF.Model;
 using AlgoTeacherWPF.Model.Enums;
+using AlgoTeacherWPF.Model.Sorting;
 using AlgoTeacherWPF.Utilities;
 using AlgoTeacherWPF.View;
 using AlgoTeacherWPF.ViewModel.Commands;
@@ -498,7 +499,7 @@ namespace AlgoTeacherWPF.ViewModel
 
             //await new Sorter().BubbleSort(_sortedDataSet, SortSpeed, SortResultModel, this);
             ClearLogMessages();
-            await new Sorter().BubbleSort(this);
+            await new BubbleSorter().Sort(this);
             ShowSuccessMessageBox($"{Algorithm.Name} Completed");
         }
 
