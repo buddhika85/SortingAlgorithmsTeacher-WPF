@@ -55,6 +55,18 @@ namespace AlgoTeacherWPF.Model.Sorting
             });
         }
 
+        protected virtual void AddNormalLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel, string message)
+        {
+            algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
+            {
+                IsSwap = false,
+                IsComparison = false,
+                SortLogMessageType = SortLogMessageType.NormalMessage,
+                Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
+                Message = message
+            });
+        }
+
         protected virtual void AddNoSwapLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel, int left)
         {
             algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
@@ -65,6 +77,18 @@ namespace AlgoTeacherWPF.Model.Sorting
                 Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
                 Message =
                     $"No swap. Because  {algorithmDetailViewModel.SortedDataSet[left].Number} <= {algorithmDetailViewModel.SortedDataSet[left + 1].Number}"
+            });
+        }
+
+        protected virtual void AddNoSwapLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel)
+        {
+            algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
+            {
+                IsSwap = false,
+                IsComparison = false,
+                SortLogMessageType = SortLogMessageType.NonSwapMessage,
+                Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
+                Message = "No swap."
             });
         }
 
@@ -79,6 +103,20 @@ namespace AlgoTeacherWPF.Model.Sorting
                 Message =
                     $"Swapping {algorithmDetailViewModel.SortedDataSet[left].Number} and {algorithmDetailViewModel.SortedDataSet[left + 1].Number}," +
                     $"Because  {algorithmDetailViewModel.SortedDataSet[left].Number} > {algorithmDetailViewModel.SortedDataSet[left + 1].Number}"
+            });
+        }
+
+        protected virtual void AddSwapLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel, int left, int right)
+        {
+            algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
+            {
+                IsSwap = true,
+                IsComparison = false,
+                SortLogMessageType = SortLogMessageType.SwapMessage,
+                Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
+                Message =
+                    $"Swapping {algorithmDetailViewModel.SortedDataSet[left].Number} and {algorithmDetailViewModel.SortedDataSet[right].Number}," +
+                    $"Because  {algorithmDetailViewModel.SortedDataSet[left].Number} > {algorithmDetailViewModel.SortedDataSet[right].Number}"
             });
         }
 

@@ -75,8 +75,10 @@
                             <StackPanel Orientation="Horizontal" >
                                 <Label Content="{Binding Id}" />
                                 <Label Content=". " />
-                                <Label Content= "{Binding Message}" 
-                                       Foreground="{Binding SortLogMessageType, Converter={StaticResource SortLogMessageTypeToTextColorConverter}}" />
+                                <TextBlock Text= "{Binding Message}" 
+                                       Foreground="{Binding SortLogMessageType, 
+                                        Converter={StaticResource SortLogMessageTypeToTextColorConverter}}" 
+                                       TextWrapping="Wrap"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
