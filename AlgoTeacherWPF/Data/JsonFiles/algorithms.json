@@ -9,7 +9,7 @@
     "SpaceComplexity": "O(1)",
     "IsStable": true,
     "Presentation": {
-      "BackgroundColor": "MediumSeaGreen",
+      "BackgroundColor": "CornflowerBlue",
       "Image": "../Assets/Images/bubble.png"
     }
   },
@@ -23,7 +23,7 @@
     "SpaceComplexity": "O(1)",
     "IsStable": false,
     "Presentation": {
-      "BackgroundColor": "MediumSeaGreen",
+      "BackgroundColor": "Gray",
       "Image": "../Assets/Images/selection.png"
     }
   },
@@ -37,7 +37,7 @@
     "SpaceComplexity": "O(1)",
     "IsStable": true,
     "Presentation": {
-      "BackgroundColor": "MediumSeaGreen",
+      "BackgroundColor": "DarkGoldenrod",
       "Image": "../Assets/Images/insertion.png"
     }
   },
@@ -51,7 +51,7 @@
     "SpaceComplexity": "O(n)",
     "IsStable": true,
     "Presentation": {
-      "BackgroundColor": "MediumSeaGreen",
+      "BackgroundColor": "MediumPurple",
       "Image": "../Assets/Images/merge.png"
     }
   },
@@ -65,7 +65,7 @@
     "SpaceComplexity": "O(log n)",
     "IsStable": false,
     "Presentation": {
-      "BackgroundColor": "MediumSeaGreen",
+      "BackgroundColor": "PaleVioletRed",
       "Image": "../Assets/Images/quick.png"
     }
   }

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Main Window - Sorting Algorithms" Height="300" Width="880"
+        Title="Main Window - Sorting Algorithms" Height="300" Width="930"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Style="{StaticResource DarkWindow}"
@@ -41,7 +41,7 @@
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" 
-                               Width="840" 
+                               Width="860" 
                                Margin="10"
                                HorizontalAlignment="Center" 
                                VerticalAlignment="Center"/>
@@ -51,7 +51,8 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border Style="{StaticResource CellBtnBorder}">
+                    <Border Style="{StaticResource CellBtnBorder}" 
+                            BorderBrush="{Binding Path=Presentation.BackgroundColor}">
                         <Button Style="{StaticResource CellBtn}"
                                 Command="{Binding ElementName=AlgorithmsListView, 
                                 Path=DataContext.AlgorithmSelectionCommand}"
@@ -59,8 +60,11 @@
                             <WrapPanel Orientation="Horizontal">
                                 <Image Source="{Binding Path=Presentation.Image}" 
                                        Height="50"
-                                       Width="50"/>
-                                <TextBlock Text="{Binding Name}" Style="{StaticResource CellTextBlock}" />
+                                       Width="50"
+                                       Margin="3"/>
+                                <TextBlock Text="{Binding Name}" 
+                                           Style="{StaticResource CellTextBlock}" 
+                                           Background="{Binding Path=Presentation.BackgroundColor}"/>
                             </WrapPanel>
                         </Button>
 
