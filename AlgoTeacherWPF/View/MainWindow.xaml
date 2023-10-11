@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Main Window - Sorting Algorithms" Height="300" Width="620"
+        Title="Main Window - Sorting Algorithms" Height="300" Width="880"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Style="{StaticResource DarkWindow}"
@@ -41,7 +41,7 @@
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" 
-                               Width="580" 
+                               Width="840" 
                                Margin="10"
                                HorizontalAlignment="Center" 
                                VerticalAlignment="Center"/>
