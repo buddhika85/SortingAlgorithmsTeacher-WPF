@@ -57,7 +57,7 @@
                                 Path=DataContext.AlgorithmSelectionCommand}"
                                 CommandParameter="{Binding Id}">
                             <WrapPanel Orientation="Horizontal">
-                                <Image Source="../Assets/Images/bubble.png" 
+                                <Image Source="{Binding Path=Presentation.Image}" 
                                        Height="50"
                                        Width="50"/>
                                 <TextBlock Text="{Binding Name}" Style="{StaticResource CellTextBlock}" />
