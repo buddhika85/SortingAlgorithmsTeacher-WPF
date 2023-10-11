@@ -140,19 +140,19 @@ namespace AlgoTeacherWPF.Model.Sorting
             algorithmDetailViewModel.SortResultModel.TotalOperations = 0;
         }
 
-        protected virtual void Swap(AlgorithmDetailViewModel algorithmDetailViewModel, int left, int right, int swapInterval)
+        protected virtual void Swap(AlgorithmDetailViewModel algorithmDetailViewModel, int left, int right)
         {
 
             algorithmDetailViewModel.SortedDataSet[left].BackgroundColor = "#ADD8E6";                                               // color what is about to be swapped
             algorithmDetailViewModel.SortedDataSet[right].BackgroundColor = "#ADD8E6";                                              // color what is about to be swapped
             algorithmDetailViewModel.SortedDataSet[left].IsRightArrowVisible = true;                                                // show arrow
 
-            Thread.Sleep(swapInterval / 2);                                                                                         // wait half of swap interval
+            Pause(2);                                                                                                               // wait half of swap interval
             (algorithmDetailViewModel.SortedDataSet[left].Number, algorithmDetailViewModel.SortedDataSet[right].Number) =
                 (algorithmDetailViewModel.SortedDataSet[right].Number, algorithmDetailViewModel.SortedDataSet[left].Number);        // swap
             algorithmDetailViewModel.SortedDataSet[left].IsRightArrowVisible = false;                                               // hide arrow
 
-            Thread.Sleep(swapInterval / 2);                                                                                         // wait half of swap interval
+            Pause(2);                                                                                                               // wait half of swap interval
 
             algorithmDetailViewModel.SortedDataSet[left].BackgroundColor = "Transparent";                                           // un color after swapping
             algorithmDetailViewModel.SortedDataSet[right].BackgroundColor = "Transparent";                                          // un color after swapping
@@ -172,6 +172,14 @@ namespace AlgoTeacherWPF.Model.Sorting
                 _ => throw new ArgumentOutOfRangeException(nameof(speed), speed,
                     $"Error - unidentified swap interval {speed}")
             };
+        }
+
+        protected void Pause(int divisionFactor = 0)
+        {
+            if (divisionFactor <= 0)
+                Thread.Sleep(SwapInterval);
+            else
+                Thread.Sleep(SwapInterval / divisionFactor);
         }
     }
 }

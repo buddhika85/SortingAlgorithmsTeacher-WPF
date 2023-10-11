@@ -24,7 +24,7 @@ namespace AlgoTeacherWPF.Model.Sorting
                         if (algorithmDetailViewModel.SortedDataSet[i].Number > algorithmDetailViewModel.SortedDataSet[i + 1].Number)
                         {
                             AddSwapLogMessage(algorithmDetailViewModel, i);
-                            Swap(algorithmDetailViewModel, i, i + 1, SwapInterval);
+                            Swap(algorithmDetailViewModel, i, i + 1);
                             AddCurrentDataSetLogMessage(algorithmDetailViewModel);
                             ++algorithmDetailViewModel.SortResultModel.Swaps;
                             ++algorithmDetailViewModel.SortResultModel.TotalOperations;

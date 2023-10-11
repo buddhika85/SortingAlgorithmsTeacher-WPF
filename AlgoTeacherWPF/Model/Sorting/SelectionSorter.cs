@@ -18,9 +18,14 @@ namespace AlgoTeacherWPF.Model.Sorting
                     var minIndex = round;       // assume the min index
                     AddNormalLogMessage(algorithmDetailViewModel,
                         $"Round {round + 1}, min index is assumed as {minIndex} and it has value {algorithmDetailViewModel.SortedDataSet[minIndex].Number}");
+
+                    Pause(2);           // half sleep interval pause
+
+
                     for (var i = round + 1; i < algorithmDetailViewModel.SortedDataSet.Count; i++)
                     {
                         AddComparisonLogMessage(algorithmDetailViewModel, minIndex, i);
+                        Pause(2);           // half sleep interval pause
                         if (algorithmDetailViewModel.SortedDataSet[i].Number <
                             algorithmDetailViewModel.SortedDataSet[minIndex].Number)
                         {
@@ -29,6 +34,7 @@ namespace AlgoTeacherWPF.Model.Sorting
                                 $"Min index value {algorithmDetailViewModel.SortedDataSet[i].Number}");
                             // new min index is found
                             minIndex = i;
+                            Pause(2);           // half sleep interval pause
                         }
                     }
 
@@ -41,7 +47,7 @@ namespace AlgoTeacherWPF.Model.Sorting
                         AddSwapLogMessage(algorithmDetailViewModel, round, minIndex);
                         // rounds index is not in correct place, there is min value/min index
                         // swap - round index with min index
-                        Swap(algorithmDetailViewModel, round, minIndex, SwapInterval);
+                        Swap(algorithmDetailViewModel, round, minIndex);
                     }
                     else
                     {
@@ -58,6 +64,7 @@ namespace AlgoTeacherWPF.Model.Sorting
                 }
 
                 AddSortStartEndMessage(algorithmDetailViewModel, false);
+                Pause();
             });
         }
 
