@@ -51,20 +51,20 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-
                     <Border Style="{StaticResource CellBtnBorder}">
                         <Button Style="{StaticResource CellBtn}"
-                            Command="{Binding ElementName=AlgorithmsListView, 
-                            Path=DataContext.AlgorithmSelectionCommand}"
-                            CommandParameter="{Binding Id}">
-                        
-                            <!--<Label Content="{Binding Name}" Style="{StaticResource Cell}" 
-                                   Foreground="WhiteSmoke"/>-->
-                            <TextBlock Text="{Binding Name}" Style="{StaticResource CellTextBlock}" />
-                       
+                                Command="{Binding ElementName=AlgorithmsListView, 
+                                Path=DataContext.AlgorithmSelectionCommand}"
+                                CommandParameter="{Binding Id}">
+                            <WrapPanel Orientation="Horizontal">
+                                <Image Source="../Assets/Images/bubble.png" 
+                                       Height="50"
+                                       Width="50"/>
+                                <TextBlock Text="{Binding Name}" Style="{StaticResource CellTextBlock}" />
+                            </WrapPanel>
                         </Button>
-                    </Border>
 
+                    </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
 

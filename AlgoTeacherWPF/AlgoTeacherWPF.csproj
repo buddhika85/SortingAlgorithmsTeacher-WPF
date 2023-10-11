@@ -15,6 +15,11 @@
   <ItemGroup>
     <PackageReference Include="LiveCharts.Wpf.Core" Version="0.9.8" />
     <Resource Include="Assets/Images/sort.ico" />
+    <Resource Include="Assets/Images/bubble.png" />
+    <Resource Include="Assets/Images/selection.png" />
+    <Resource Include="Assets/Images/insertion.png" />
+    <Resource Include="Assets/Images/merge.png" />
+    <Resource Include="Assets/Images/quick.png" />
   </ItemGroup>
 
 </Project>
