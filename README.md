@@ -13,14 +13,18 @@ This window allows the user to view a demonstration of the sorting algorithm usi
 
    ![Algorithm Details View](https://github.com/buddhika85/SortingAlgorithmsTeacher-WPF/blob/main/planning/UIs/2.1%20Algorithm%20Details%20View-Annotated.png?raw=true)
 
+3. Users can view more information about the sorting algorithm steps by analyzing the Log messages window.
 
+   ![Log Messages View](https://github.com/buddhika85/SortingAlgorithmsTeacher-WPF/blob/main/planning/UIs/3.2LogMessages-Annoated.png?raw=true)
+   
+# Development Status
 
-Version 1 is complete. This version includes visualizations for,
+2023-10-13 - Version 1 is complete. This version includes visualizations for,
 Bubble Sort
 Selection Sort
 Insertion Sort
 
-Version 2 will include,
+Current Development - Version 2 will include,
 
 Merge Sort 
 Quick Sort
