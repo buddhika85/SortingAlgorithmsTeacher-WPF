@@ -20,15 +20,16 @@ This window allows the user to view a demonstration of the sorting algorithm usi
 # Development Status
 
 2023-10-13 - Version 1 is complete. This version includes visualizations for,
-Bubble Sort
-Selection Sort
-Insertion Sort
+* Bubble Sort
+* Selection Sort
+* Insertion Sort
 
 Current Development - Version 2 will include,
 
-Merge Sort 
-Quick Sort
+* Merge Sort 
+* Quick Sort
 
+# Technolgies used 
 
 * Built with WPF on .NET 6
 * C#
@@ -39,3 +40,4 @@ Quick Sort
 * IValueConverter interface
 * ObseravableCollection<T> 
 * Data Access - on a .json data source
+* Live Charts - https://v0.lvcharts.com/
