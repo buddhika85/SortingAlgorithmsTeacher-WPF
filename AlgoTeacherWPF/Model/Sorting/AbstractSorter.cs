@@ -48,7 +48,7 @@ namespace AlgoTeacherWPF.Model.Sorting
             {
                 IsSwap = false,
                 IsComparison = false,
-                SortLogMessageType = SortLogMessageType.NormalMessage,
+                SortLogMessageType = SortLogMessageType.CurrentDataSetMessage,
                 Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
                 Message =
                     $"Now Data set looks like - {string.Join(", ", algorithmDetailViewModel.SortedDataSet.Select(x => x.Number))}"
@@ -62,6 +62,18 @@ namespace AlgoTeacherWPF.Model.Sorting
                 IsSwap = false,
                 IsComparison = false,
                 SortLogMessageType = SortLogMessageType.NormalMessage,
+                Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
+                Message = message
+            });
+        }
+
+        protected virtual void AddCopyLogMessage(AlgorithmDetailViewModel algorithmDetailViewModel, string message)
+        {
+            algorithmDetailViewModel.SortResultModel.AddLogMessage(new SortingLogMessage
+            {
+                IsSwap = false,
+                IsComparison = false,
+                SortLogMessageType = SortLogMessageType.CopyMessage,
                 Id = ++algorithmDetailViewModel.SortResultModel.LastLogMessageId,
                 Message = message
             });

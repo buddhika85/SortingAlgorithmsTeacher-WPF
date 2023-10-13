@@ -34,5 +34,7 @@ public enum SortLogMessageType
     SwapMessage,
     NonSwapMessage,
     SortStartMessage,
-    SortCompleteMessage
+    SortCompleteMessage,
+    CopyMessage,
+    CurrentDataSetMessage
 }

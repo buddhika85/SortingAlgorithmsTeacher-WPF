@@ -32,6 +32,10 @@ namespace AlgoTeacherWPF.Model.Enums
                     return "#b43757";       // purple - hibiscus
                 case SortLogMessageType.SortCompleteMessage:
                     return "#af69ee";       // purple - floral
+                case SortLogMessageType.CopyMessage:
+                    return "#e75480";       // dark pink
+                case SortLogMessageType.CurrentDataSetMessage:
+                    return "#008b8b";       // dark cyan
                 default:
                     throw new ArgumentOutOfRangeException(nameof(sortLogMessageType), sortLogMessageType, "Unidentified sort log message type");
             }
