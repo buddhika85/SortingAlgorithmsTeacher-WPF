@@ -11,10 +11,10 @@ namespace AlgoTeacherWPF.Model.Sorting
             {
                 for (var i = 1; i < algorithmDetailViewModel.SortedDataSet.Count; i++)
                 {
-                    var current = algorithmDetailViewModel.SortedDataSet[i];
+                    var current = algorithmDetailViewModel.SortedDataSet[i].Number;
                     var j = i - 1;
                     var wasShifted = false;
-                    while (j >= 0 && algorithmDetailViewModel.SortedDataSet[j].Number > current.Number)
+                    while (j >= 0 && algorithmDetailViewModel.SortedDataSet[j].Number > current)
                     {
                         // shift left to right - to make space for current
                         algorithmDetailViewModel.SortedDataSet[j + 1].Number = algorithmDetailViewModel.SortedDataSet[j].Number;
@@ -22,7 +22,7 @@ namespace AlgoTeacherWPF.Model.Sorting
                         j--;
                     }
                     if (wasShifted)
-                        algorithmDetailViewModel.SortedDataSet[j + 1].Number = current.Number;
+                        algorithmDetailViewModel.SortedDataSet[j + 1].Number = current;
                 }
             });
         }

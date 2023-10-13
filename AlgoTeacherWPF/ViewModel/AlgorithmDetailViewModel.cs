@@ -507,6 +507,9 @@ namespace AlgoTeacherWPF.ViewModel
                 case "Selection Sort":
                     await new SelectionSorter().Sort(this);
                     break;
+                case "Insertion Sort":
+                    await new InsertionSort().Sort(this);
+                    break;
                 default:
                     ShowInfoMessageBox($"{Algorithm.Name} - is still unimplemented");
                     break;
