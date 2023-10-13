@@ -1,7 +1,11 @@
 # SortingAlgorithmsTeacher-WPF
 This application allows the user to analyze/learn how sorting algorithms work.
 
-The first user interface will allow the user to select a Sorting algorithm.
+1. The first user interface will allow the user to select a Sorting algorithm.
+
+   ![Main](https://github.com/buddhika85/SortingAlgorithmsTeacher-WPF/blob/main/planning/UIs/1%20Main%20view.png?raw=true)
+
+2. 
 
 
 
