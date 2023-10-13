@@ -7,9 +7,12 @@ This application allows the user to analyze/learn how sorting algorithms work.
 
 2. After the user selects a sorting algorithm (for example Bubble Sort), the user will be directed to the Algorithm Details Window. It looks like below,
 
-![Algorithm Details View](https://github.com/buddhika85/SortingAlgorithmsTeacher-WPF/blob/main/planning/UIs/2%20Algorithm%20Details%20View.png?raw=true)
+   ![Algorithm Details View](https://github.com/buddhika85/SortingAlgorithmsTeacher-WPF/blob/main/planning/UIs/2%20Algorithm%20Details%20View.png?raw=true)
 
-This window allows the user to view a demonstration of the sorting algorithm using a bar chart or a visual array. 
+This window allows the user to view a demonstration of the sorting algorithm using a bar chart or a visual array. More details about the functionality of this window are explained in the below diagram.
+
+   ![Algorithm Details View](https://github.com/buddhika85/SortingAlgorithmsTeacher-WPF/blob/main/planning/UIs/2.1%20Algorithm%20Details%20View-Annotated.png?raw=true)
+
 
 
 Version 1 is complete. This version includes visualizations for,
