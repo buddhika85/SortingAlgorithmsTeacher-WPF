@@ -30,7 +30,7 @@ namespace AlgoTeacherWPF.ViewModel
         }
 
 
-        public void OnAlgorithmSelectionClick(int algorithmId)
+        public void OnAlgorithmSelectionCommandExecute(int algorithmId)
         {
             var selectedAlgorithm = GetSelectedAlgorithm(algorithmId);
             if (selectedAlgorithm == null)

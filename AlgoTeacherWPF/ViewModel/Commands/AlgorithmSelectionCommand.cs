@@ -19,7 +19,7 @@
             if (parameter == null)
                 return;
             var algorithmId = (int)parameter;
-            _mainWindowViewModel.OnAlgorithmSelectionClick(algorithmId);
+            _mainWindowViewModel.OnAlgorithmSelectionCommandExecute(algorithmId);
         }
 
     }
