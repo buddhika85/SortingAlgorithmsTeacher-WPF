@@ -1,4 +1,5 @@
 ﻿using AlgoTeacherWPF.Data;
+using System.Configuration;
 using System.IO;
 using System.Windows;
 
@@ -9,8 +10,8 @@ namespace AlgoTeacherWPF;
 /// </summary>
 public partial class App : Application
 {
-    public const string JsonFilePath =
-        "D:\\buddhika\\work Projects\\SortingAlgorithmsTeacher-WPF\\AlgoTeacherWPF\\Data\\JsonFiles\\algorithms.json";
+    public static readonly string JsonFilePath = ConfigurationManager.AppSettings["jsonFilePath"] ?? 
+        "C:\\BUDDHIKA\\Development\\Git\\SortingAlgorithmsTeacher-WPF\\AlgoTeacherWPF\\Data\\JsonFiles\\algorithms.json";
 
     public App()
     {
