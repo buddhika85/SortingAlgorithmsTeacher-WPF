@@ -521,7 +521,7 @@ namespace AlgoTeacherWPF.ViewModel
 
         public void Reset()
         {
-            ShowInfoMessageBox("Reset");
+            //ShowInfoMessageBox("Reset");
             ClearLogMessages();
             DataSetSize = InitialDatSetSize;
             SetCanRepeat(DefaultCanRepeat);
